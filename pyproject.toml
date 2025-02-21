@@ -30,8 +30,7 @@ repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
 python = ">=3.9,<3.12"
 eta-utility = {extras = ["eta_x"], version = "~3.2"}
 numpy = "^1.26"
-# toml = "^0.10.2"
-flask = "^3.1.0"
+apiflask = "^2.3.2"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.5.0"

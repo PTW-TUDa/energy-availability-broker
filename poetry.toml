@@ -1,0 +1,3 @@
+# Configure Poetry to create virtual environments in the project folder
+[virtualenvs]
+in-project = true

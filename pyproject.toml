@@ -1,0 +1,98 @@
+[tool.poetry]
+name = "energy_information_service"
+version = "0.1.0"
+description = "Communication architecture demonstration for multi level demand-response"
+authors = ["Andreas Clement <a.clement@ptw.tu-darmstadt.de>, Tobias Koch <t.koch@ptw.tu-darmstadt.de>"]
+readme = "README.md"
+license = "BSD-2-Clause License"
+
+keywords = ["eta_x", "experiment", "demand_response", "multi_agent_system"]
+
+# specify some classifiers, to signify, who you are developing for. See: https://pypi.org/classifiers/
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
+
+# Specify URLs for the project (optional)
+homepage = "https://www.ptw.tu-darmstadt.de" # TODO: change this
+documentation = "https://eta-utility.readthedocs.io/" # TODO: change this
+repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+eta-utility = {extras = ["eta_x"], version = "~3.2"}
+numpy = "^1.26"
+# toml = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+ruff = "^0.4.10"
+
+[tool.ruff]
+include = ["pyproject.toml", "energy_information_service/**/*.py", "test/**/*.py", "examples/**/*.py"]
+
+line-length = 120
+indent-width = 4
+
+required-version = ">=0.4.0"
+target-version= "py39"
+
+# Only fix with $ruff check --fix
+fix = false
+
+[tool.ruff.lint]
+select = [
+    "F",       # Pyflakes
+    "E", "W",  # Pycodestyle, Error and Warning
+    "I",       # Isort
+    "N",       # Pep8-naming conventions
+    "UP",      # Pyupgrade
+    "PL",      # Pylint
+    "ERA",     # Eradicate
+    "PD",      # Pandas-vet
+    "NPY",     # NumPy-specific
+    "RUF",     # Ruff
+
+    # Flake8:
+    # asyncio, bugbear, builtins, commas, comprehensions, eradicate, future-annotations,
+    # implicit-str-concat, logging, no-pep420, print, pyi, pytest-style, return, simplify, use-pathlib
+    "ASYNC", "B", "A", "COM", "C4", "FA", "ISC", "LOG", "INP", "T20", "PYI", "PT", "RET", "SIM", "PTH",
+
+    ]
+
+ignore = [
+    "ERA001", #commented code
+    "SIM105",
+    "PLR2004",  # Pylint: magic values
+    # Recommended to ignore as they conflict with the formatter
+    "W191", "E111", "E114", "E117", "D206", "D300", "COM812", "COM819", "ISC001"
+]
+
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = ["PLC0414"]
+"examples/*" = ["T201"]
+"test/*" = ["RUF012"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.ruff.lint.pylint]
+max-args = 17
+max-branches = 20
+max-statements = 64
+max-returns = 9
+max-nested-blocks = 20
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"

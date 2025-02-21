@@ -1,0 +1,102 @@
+# Setup variables for the pipeline
+variables:
+  # Poetry settings
+  POETRY_VERSION: 1.8.2
+  POETRY_HOME: /usr/local
+  POETRY_NO_INTERACTION: 1
+  POETRY_VIRTUALENVS_CREATE: false
+  POETRY_CACHE_DIR: $CI_PROJECT_DIR/.poetry_cache
+  # Pip settings
+  PIP_NO_CACHE_DIR: off
+  PIP_DISABLE_PIP_VERSION_CHECK: on
+  PIP_CACHE_DIR: $CI_PROJECT_DIR/.pip_cache
+
+stages:
+  - setup
+  - check
+
+.default_rules:
+  rules:
+    # Create pipelines for merge request events
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    # Create a pipeline for the default branch
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    # Dont create a branch pipeline while there are open merge requests
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+
+.on_main_rule:
+  rules:
+    # Deploy if a pushed to main branch
+    - if: $CI_COMMIT_BRANCH == "main"
+
+workflow:
+  rules:
+    # Create pipelines for merge request events
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    # Create a pipeline for the default branch
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    # Create a pipeline if a version tag was created
+    - if: '$CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+(-[0-9A-Za-z]+)?$/'
+    # Dont create a branch pipeline while there are open merge requests
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+
+# Default cache setting for all jobs
+# Cache gets invalidated when poetry.lock changes
+cache: &poetry_cache
+  key: "global-deps-$(checksum poetry.lock)"
+  paths:
+    - ${POETRY_CACHE_DIR}
+    - ${PIP_CACHE_DIR}
+  policy: pull
+
+
+default:
+  tags:
+    - python
+    - docker
+  interruptible: true
+  image: python:3.10
+  before_script:
+    - rm -rf dist doc energy_information_service.egg-info build
+    - rm -rf docs/_build docs/_stubs
+    - python -V  # Print out python version for debugging
+    - ls -la
+    # Install Poetry
+    - curl -sSL https://install.python-poetry.org | POETRY_VERSION=$POETRY_VERSION python3 -
+
+
+# Job to update pip cache
+update-cache:
+  stage: setup
+  script:
+    - poetry install --sync
+  cache:
+    <<: *poetry_cache
+    policy: pull-push
+
+check-poetry:
+  stage: check
+  script:
+    - poetry --version
+    - poetry check
+
+ruff:
+  stage: check
+  script:
+    - poetry install --only ruff --sync
+    - ruff --version
+    - ruff check
+    - ruff format
+
+
+secret_detection:
+  stage: check
+  before_script: []
+  rules:
+    - !reference [.default_rules, rules]

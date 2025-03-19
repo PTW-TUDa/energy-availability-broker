@@ -14,6 +14,7 @@ variables:
 stages:
   - setup
   - check
+  - test
 
 .default_rules:
   rules:
@@ -61,26 +62,37 @@ default:
     - python
     - docker
   interruptible: true
-  image: python:3.10
+  image: python:py3.10
   before_script:
+    - python --version
     - rm -rf dist doc energy_information_service.egg-info build
     - rm -rf docs/_build docs/_stubs
-    - python -V  # Print out python version for debugging
     - ls -la
-    # Install Poetry
-    - curl -sSL https://install.python-poetry.org | POETRY_VERSION=$POETRY_VERSION python3 -
-
+    # Install development dependencies
+    - poetry install -E develop --sync
+  # Cache gets invalidated when poetry.lock changes
+  cache:
+    key: "global-deps-$(checksum poetry.lock)"
+    paths:
+      - ${POETRY_CACHE_DIR}
+      - ${PIP_CACHE_DIR}
+    policy: pull
 
 # Job to update pip cache
 update-cache:
   stage: setup
+  before_script: []
   script:
-    - poetry install --sync
+    - poetry install -E develop --sync
   cache:
-    <<: *poetry_cache
     policy: pull-push
+  artifacts:
+    paths:
+      - pyproject.toml
+      - poetry.lock
+  dependencies: []
 
-check-poetry:
+poetry:
   stage: check
   script:
     - poetry --version
@@ -89,14 +101,19 @@ check-poetry:
 ruff:
   stage: check
   script:
-    - poetry install --only ruff --sync
     - ruff --version
     - ruff check
     - ruff format
 
-
 secret_detection:
   stage: check
   before_script: []
-  rules:
-    - !reference [.default_rules, rules]
+
+
+.test:
+  stage: test
+  script:
+  - pytest
+  retry:
+    max: 1
+    when: script_failure

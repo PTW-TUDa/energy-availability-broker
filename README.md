@@ -4,11 +4,11 @@ implement the energy information service for the eta factory
 
 ## Usage
 
-just put 'flask run' into the terminal
+just put 'poetry run fastapi run ./energy_information_service/main.py' into the terminal
 
 ## Development
 
-to run a dev session, put 'flask run --debug'
+to run a dev session, put 'poetry run fastapi dev ./energy_information_service/main.py'
 
 If you want to perform development work, you have to install Poetry. See the [eta-utility docs](https://eta-utility.readthedocs.io/en/master/guide/development.html) for more information.
 

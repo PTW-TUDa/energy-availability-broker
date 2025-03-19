@@ -28,13 +28,17 @@ repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
-eta-utility = {extras = ["eta_x"], version = "~3.2"}
+eta-utility = {extras = [], version = "~3.2"}
 numpy = "^1.26"
-apiflask = "^2.3.2"
+fastapi = {extras = ["standard"], version="^0.115.8"}
+anyio = "^4.8.0"
+apscheduler = "4.0.0a5"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.5.0"
 ruff = "^0.4.10"
+pytest = "^8.3.4"
+pytest-mock = "^3.14.0"
 
 [tool.ruff]
 include = ["pyproject.toml", "energy_information_service/**/*.py", "test/**/*.py", "examples/**/*.py"]
@@ -47,6 +51,9 @@ target-version= "py39"
 
 # Only fix with $ruff check --fix
 fix = false
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.params.Depends", "fastapi.Query", "fastapi.params.Query"]
 
 [tool.ruff.lint]
 select = [

@@ -138,3 +138,5 @@ cython_debug/
 
 # Requests Cache
 *.sqlite
+
+energy_information_service/secret.py

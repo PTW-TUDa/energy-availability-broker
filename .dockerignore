@@ -1,0 +1,11 @@
+.git
+__pycache__
+*.pyc
+*.ipynb
+node_modules
+.env
+.vscode
+venv/
+.venv
+dist
+build

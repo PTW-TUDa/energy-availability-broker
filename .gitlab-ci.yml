@@ -59,7 +59,7 @@ update-cache:
   stage: setup
   before_script: []
   script:
-    - poetry install -E develop --sync
+    - poetry install --sync
   cache:
     policy: pull-push
   artifacts:

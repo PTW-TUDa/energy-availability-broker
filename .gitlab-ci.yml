@@ -22,7 +22,7 @@ include:
 # Setup variables for the pipeline
 variables:
   # Poetry settings
-  POETRY_VERSION: 1.8.3
+  POETRY_VERSION: 2.1.1
   POETRY_HOME: /usr/local
   POETRY_NO_INTERACTION: 1
   POETRY_VIRTUALENVS_CREATE: false
@@ -39,6 +39,12 @@ default:
   interruptible: true
   image: python:3.11-slim-bullseye
   before_script:
+    - apt-get update && apt-get install -y curl
+    # Install Poetry (using the official recommended installer):
+    - curl -sSL https://install.python-poetry.org | python -
+    - export PATH="/root/.local/bin:$PATH"
+    - poetry --version
+
     - python --version
     - rm -rf dist doc energy_information_service.egg-info build
     - rm -rf docs/_build docs/_stubs

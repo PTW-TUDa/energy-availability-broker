@@ -52,3 +52,31 @@ async def get_data_csv(task: DataProvider = Depends(get_data_provider)):
     """Serve the latest DataFrame as a CSV file."""
     price_matrix = await task.get_data()
     return Response(price_matrix.to_csv(index=False), media_type="text/csv")
+
+
+@app.get("/source/{energy_source}")
+async def get_data_by_source(energy_source: str, task: DataProvider = Depends(get_data_provider)):
+    """
+    Returns data filtered by the specified energy source (e.g. 'PV' or 'Grid').
+    Case-insensitive (i.e., 'pv' or 'PV' will work).
+    """
+    price_matrix = await task.get_data()
+
+    filtered = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+
+    if filtered.empty:
+        return {"error": "No rows found for source '{energy_source}'"}
+
+    return filtered.to_dict(orient="records")
+
+
+@app.get("/sources")
+async def get_sources(task: DataProvider = Depends(get_data_provider)):
+    """
+    Returns a list of available energy sources.
+    """
+    price_matrix = await task.get_data()
+
+    sources = price_matrix["Source"].unique().tolist()
+
+    return {"sources": sources}

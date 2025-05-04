@@ -60,9 +60,7 @@ async def get_data_by_source(energy_source: str, task: DataProvider = Depends(ge
     Returns data filtered by the specified energy source (e.g. 'PV' or 'Grid').
     Case-insensitive (i.e., 'pv' or 'PV' will work).
     """
-    price_matrix = await task.get_data()
-
-    filtered = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+    filtered = await task.get_data_by_source(energy_source)
 
     if filtered.empty:
         return {"error": "No rows found for source '{energy_source}'"}
@@ -75,8 +73,6 @@ async def get_sources(task: DataProvider = Depends(get_data_provider)):
     """
     Returns a list of available energy sources.
     """
-    price_matrix = await task.get_data()
-
-    sources = price_matrix["Source"].unique().tolist()
+    sources = await task.get_sources()
 
     return {"sources": sources}

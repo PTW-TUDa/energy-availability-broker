@@ -73,6 +73,23 @@ class DataProvider:
             self._data = price_matrix
             log.info("Updated DataFrame rows %s", len(price_matrix))
 
+    async def get_data_by_source(self, energy_source: str):
+        """
+        Returns data filtered by the specified energy source (e.g. 'PV' or 'Grid').
+        Case-insensitive (i.e., 'pv' or 'PV' will work).
+        """
+        async with self._lock:
+            price_matrix = self._data.copy()
+        return price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+
+    async def get_sources(self):
+        """
+        Returns a list of available energy sources.
+        """
+        async with self._lock:
+            price_matrix = self._data.copy()
+        return price_matrix["Source"].unique().tolist()
+
     def fetch_data(self):
         from_time = datetime.now()
         to_time = from_time + timedelta(days=1)

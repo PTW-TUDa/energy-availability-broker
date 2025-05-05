@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import logging
 from contextlib import asynccontextmanager
+from datetime import datetime
 
 from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
-from fastapi import Depends, FastAPI, Response
+from fastapi import Depends, FastAPI, Query, Response
 
 from energy_information_service.services import DataProvider
 
@@ -76,3 +79,32 @@ async def get_sources(task: DataProvider = Depends(get_data_provider)):
     sources = await task.get_sources()
 
     return {"sources": sources}
+
+
+@app.get("/data/time-range")
+async def get_data_time_range(
+    from_time: datetime | None = Query(
+        None,
+        description="ISO-8601 start datetime, e.g. 2025-05-05T06:00:00+02:00",
+    ),
+    to_time: datetime | None = Query(
+        None,
+        description="ISO-8601 end datetime, e.g. 2025-05-05T12:00:00+02:00",
+    ),
+    task: DataProvider = Depends(get_data_provider),
+):
+    if from_time and to_time and from_time > to_time:
+        return {"error": "from_time must not be after to_time"}
+
+    filtered = await task.get_data_by_time_range(from_time, to_time)
+    return filtered.to_dict(orient="records")
+
+
+@app.get("/data/horizon")
+async def get_data_horizon(task: DataProvider = Depends(get_data_provider)):
+    """
+    Returns the time horizon (earliest & latest timestamp) currently available
+    in the cached data as a dictionary:
+        {"start_time": "...", "end_time": "..."}
+    """
+    return await task.get_horizon()

@@ -118,10 +118,28 @@ async def get_data_time_range(
 
 
 @app.get("/data/horizon")
-async def get_data_horizon(task: DataProvider = Depends(get_data_provider)):
+async def get_data_horizon(
+    source: str | None = Query(
+        None,
+        description="Optional energy source to filter by (e.g. 'PV' or 'Grid').",
+    ),
+    task: DataProvider = Depends(get_data_provider),
+):
     """
     Returns the time horizon (earliest & latest timestamp) currently available
     in the cached data as a dictionary:
         {"start_time": "...", "end_time": "..."}
     """
-    return await task.get_horizon()
+
+    # --- validate source if provided (case-insensitive) ---
+    if source is not None:
+        valid_sources = await task.get_sources()
+        if source.lower() not in (s.lower() for s in valid_sources):
+            return {"error": f"Invalid energy source '{source}'. " f"Available sources: {valid_sources}"}
+
+    horizon = await task.get_horizon(source)
+
+    if horizon["start_time"] is None:
+        return {"error": "No data found for the requested source"}
+
+    return horizon

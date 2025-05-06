@@ -96,6 +96,7 @@ class DataProvider:
         self,
         from_time: datetime | None = None,
         to_time: datetime | None = None,
+        energy_source: str | None = None,
     ):
         """Return a slice of the matrix between from_time and to_time (inclusive)."""
         async with self._lock:
@@ -105,6 +106,8 @@ class DataProvider:
             price_matrix = price_matrix[price_matrix["Time"] >= from_time]
         if to_time is not None:
             price_matrix = price_matrix[price_matrix["Time"] <= to_time]
+        if energy_source is not None:
+            price_matrix = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
 
         return price_matrix
 

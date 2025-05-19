@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 from datetime import datetime, timedelta
 
@@ -73,6 +75,67 @@ class DataProvider:
             self._data = price_matrix
             log.info("Updated DataFrame rows %s", len(price_matrix))
 
+    async def get_data_by_source(self, energy_source: str):
+        """
+        Returns data filtered by the specified energy source (e.g. 'PV' or 'Grid').
+        Case-insensitive (i.e., 'pv' or 'PV' will work).
+        """
+        async with self._lock:
+            price_matrix = self._data.copy()
+        return price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+
+    async def get_sources(self):
+        """
+        Returns a list of available energy sources.
+        """
+        async with self._lock:
+            price_matrix = self._data.copy()
+        return price_matrix["Source"].unique().tolist()
+
+    async def get_data_by_time_range(
+        self,
+        from_time: datetime | None = None,
+        to_time: datetime | None = None,
+        energy_source: str | None = None,
+    ):
+        """Return a slice of the matrix between from_time and to_time (inclusive)."""
+        async with self._lock:
+            price_matrix = self._data.copy()
+
+        if from_time is not None:
+            price_matrix = price_matrix[price_matrix["Time"] >= from_time]
+        if to_time is not None:
+            price_matrix = price_matrix[price_matrix["Time"] <= to_time]
+        if energy_source is not None:
+            price_matrix = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+
+        return price_matrix
+
+    async def get_horizon(self, energy_source: str | None = None) -> dict:
+        """
+        Return the earliest and latest timestamps that are presently cached.
+        If *energy_source* is specified, return the timestamps for that source only.
+        Result format: {"start_time": "<ISO-8601>", "end_time": "<ISO-8601>"}
+        """
+        async with self._lock:
+            if self._data.empty:
+                return {"start_time": None, "end_time": None}
+
+            price_matrix = self._data.copy()
+            if energy_source is not None:
+                price_matrix = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
+
+            if price_matrix.empty:
+                return {"start_time": None, "end_time": None}
+
+            start_ts: datetime = price_matrix["Time"].min()
+            end_ts: datetime = price_matrix["Time"].max()
+
+        return {
+            "start_time": start_ts.isoformat(),
+            "end_time": end_ts.isoformat(),
+        }
+
     def fetch_data(self):
         from_time = datetime.now()
         to_time = from_time + timedelta(days=1)
@@ -111,12 +174,12 @@ class DataProvider:
             day_ahead_prices = day_ahead_prices.drop(columns=["Grid Price 1h (EUR/MWh)", "Grid Price 0.25h (EUR/MWh)"])
 
         price_matrix = pd.concat([pv_production, day_ahead_prices], ignore_index=True)
-        price_matrix = (
+        return (
             price_matrix.sort_values(by=["Time", "Source"])
             .reset_index(drop=True)
             .replace({1: "PV", 2: "Grid"})
             .dropna()
         )
-        price_matrix["Time"] = price_matrix["Time"].dt.strftime("%H:%M")
 
-        return price_matrix
+        # price_matrix["Time"] = price_matrix["Time"].dt.strftime("%H:%M")
+        # return price_matrix

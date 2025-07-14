@@ -141,3 +141,4 @@ cython_debug/
 *.sqlite
 
 energy_information_service/secret.py
+df_forecast.csv

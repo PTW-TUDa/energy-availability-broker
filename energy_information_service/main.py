@@ -8,11 +8,15 @@ from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import Depends, FastAPI, Query, Response
 
+from energy_information_service.forecast import ForecastProvider
 from energy_information_service.services import DataProvider
+from energy_information_service.supply_forecast import SupplyForecastProvider
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 data_provider = DataProvider()
+forecast_provider = ForecastProvider()
+supply_forecast_provider = SupplyForecastProvider(forecast_provider)
 
 
 @asynccontextmanager
@@ -22,6 +26,9 @@ async def lifespan(app: FastAPI):
     async with AsyncScheduler() as scheduler:
         # Add periodic task
         await scheduler.add_schedule(data_provider.run, IntervalTrigger(minutes=5))
+
+        # refresh forecast at server start + every 24 h
+        await scheduler.add_schedule(forecast_provider.get_forecast, IntervalTrigger(hours=24))
 
         # Start the scheduler in the background
         await scheduler.start_in_background()
@@ -37,6 +44,14 @@ app = FastAPI(title="Energy Information Service", lifespan=lifespan)
 
 def get_data_provider():
     return data_provider
+
+
+def get_forecast_provider():
+    return forecast_provider
+
+
+def get_supply_forecast_provider():
+    return supply_forecast_provider
 
 
 @app.get("/")
@@ -143,3 +158,29 @@ async def get_data_horizon(
         return {"error": "No data found for the requested source"}
 
     return horizon
+
+
+@app.get("/dam-forecast")
+async def get_dam_forecast(task: ForecastProvider = Depends(get_forecast_provider)):
+    """
+    Returns 5 x 24 h of 15 Minute Day-Ahead-Market prices as:
+        [{"Time": "...", "Cost (EUR/MWh)": ...}, …]
+    """
+    return await task.get_forecast()
+
+
+@app.get("/supply-forecast")
+async def get_supply_forecast(task: SupplyForecastProvider = Depends(get_supply_forecast_provider)):
+    """
+    Returns 5 x 24 h of 15 Minute rows with the following columns
+
+    * Time (ISO-8601 string)
+    * Energy (kWh)
+    * Cost (EUR/kWh)
+    * Source  → "PV", "Grid", or "Forecast"
+
+    The endpoint re-uses *one* shared `ForecastProvider` instance, so it
+    does **not** increase the number of calls to the ENTSO-E API and keeps
+    us safely under the token's rate limit.
+    """
+    return await task.get_supply_forecast()

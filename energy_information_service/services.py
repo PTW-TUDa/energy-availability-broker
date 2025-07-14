@@ -165,7 +165,7 @@ class DataProvider:
             day_ahead_prices = day_ahead_prices.drop(columns=["Grid Price 1h (EUR/MWh)"])
 
         if num_columns == 3:
-            day_ahead_prices.columns = ["Time", "Grid Price 1h (EUR/MWh)", "Grid Price 0.25h (EUR/MWh)"]
+            day_ahead_prices.columns = ["Time", "Grid Price 0.25h (EUR/MWh)", "Grid Price 1h (EUR/MWh)"]
             day_ahead_prices["Time"] = pd.to_datetime(day_ahead_prices["Time"])
             day_ahead_prices["Energy (kWh)"] = 149 * 0.25
             day_ahead_prices["Cost (EUR/kWh)"] = day_ahead_prices["Grid Price 1h (EUR/MWh)"] / 1000

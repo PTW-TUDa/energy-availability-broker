@@ -28,8 +28,8 @@ repos:
       - id: check-case-conflict
       - id: check-toml
   - repo: https://github.com/python-poetry/poetry
-    rev: 1.8.2
+    rev: 2.1.4
     hooks:
       -   id: poetry-check
       -   id: poetry-lock
-          args: [--no-update]
+          # args: [--no-update]

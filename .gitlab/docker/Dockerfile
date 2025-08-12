@@ -2,7 +2,7 @@
 
 # Define build arguments for Python and Poetry
 ARG PYTHON_VERSION=3.10
-ARG POETRY_VERSION=2.1.1
+ARG POETRY_VERSION=2.1.4
 
 # Use the official Python slim image as our base
 FROM python:${PYTHON_VERSION}-slim AS final
@@ -24,7 +24,7 @@ ENV PATH="${POETRY_HOME}/bin:$PATH"
 
 # Install system dependencies (curl, etc.)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
+    curl ca-certificates build-essential gcc g++ libgomp1 git tzdata \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Poetry

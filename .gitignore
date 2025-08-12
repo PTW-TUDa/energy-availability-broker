@@ -142,3 +142,4 @@ cython_debug/
 
 energy_information_service/secret.py
 df_forecast.csv
+combined_data.csv

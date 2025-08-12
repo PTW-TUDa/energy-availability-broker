@@ -5,11 +5,11 @@ GREEN="\033[0;32m"
 NC="\033[0m" # No Color
 
 # Define the Python versions to build
-PYTHON_VERSIONS=("3.9" "3.10" "3.11")
-POETRY_VERSION="2.1.1"
+PYTHON_VERSIONS=("3.10" "3.11")
+POETRY_VERSION="2.1.4"
 DOCKERFILE_PATH=".gitlab/docker/Dockerfile"
 REGISTRY_URL="git-reg.ptw.maschinenbau.tu-darmstadt.de"
-IMAGE_PATH="/eta-fabrik/projekte/energy-information-service"
+IMAGE_PATH="eta-fabrik/projekte/energy-information-service"
 
 docker login ${REGISTRY_URL}
 if [ $? -ne 0 ]; then
@@ -19,7 +19,7 @@ fi
 
 # Loop through each Python version and build/push the Docker image
 for PYTHON_VERSION in "${PYTHON_VERSIONS[@]}"; do
-    IMAGE_NAME="${REGISTRY_URL}${IMAGE_PATH}poetry${POETRY_VERSION}:py${PYTHON_VERSION}"
+    IMAGE_NAME="${REGISTRY_URL}/${IMAGE_PATH}/poetry${POETRY_VERSION}:py${PYTHON_VERSION}"
 
     echo "Building and pushing Docker image for Python ${PYTHON_VERSION}..."
 

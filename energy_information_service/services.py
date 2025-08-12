@@ -180,6 +180,3 @@ class DataProvider:
             .replace({1: "PV", 2: "Grid"})
             .dropna()
         )
-
-        # price_matrix["Time"] = price_matrix["Time"].dt.strftime("%H:%M")
-        # return price_matrix

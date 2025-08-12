@@ -34,9 +34,7 @@ FEATURES = [
     "is_weekend",
 ]
 
-########################################
 # FETCH WEATHER DATA FROM OPEN-METEO
-########################################
 
 
 def fetch_openmeteo_data(start_date, end_date, latitude, longitude, tilt, azimuth, timezone="Europe/Berlin"):
@@ -97,9 +95,7 @@ def fetch_openmeteo_data(start_date, end_date, latitude, longitude, tilt, azimut
     return df_weather
 
 
-########################################
 # FETCH MULTI LOCATION WEATHER DATA
-########################################
 
 
 def fetch_multi_location_weather(start_date, end_date):
@@ -136,9 +132,7 @@ def fetch_multi_location_weather(start_date, end_date):
     return pd.concat(dfs, axis=1, join="outer").sort_index()
 
 
-########################################
 # FETCH DAY-AHEAD PRICE FROM ENTSO-E
-########################################
 
 
 def fetch_entsoe_day_ahead_prices(client, start_date="2020-01-01", end_date="2025-03-07"):
@@ -162,9 +156,7 @@ def fetch_entsoe_day_ahead_prices(client, start_date="2020-01-01", end_date="202
         return pd.DataFrame()
 
 
-########################################
 # COMBINE INTO ONE DATASET
-########################################
 
 
 def get_combined_data(client, start_date, end_date, combined_csv="combined_data.csv", force_fetch=False):
@@ -172,7 +164,9 @@ def get_combined_data(client, start_date, end_date, combined_csv="combined_data.
     Fetches weather data and ENTSO-E day-ahead prices for the specified date range,
     then merges them into one DataFrame and saves to CSV.
     """
-    if combined_csv and Path.exists(combined_csv) and not force_fetch:
+    csv_path = Path(combined_csv)
+
+    if csv_path.exists() and not force_fetch:
         log.info(f"Loading combined data from {combined_csv}...")
         return pd.read_csv(combined_csv, parse_dates=True, index_col=0)
 
@@ -362,7 +356,7 @@ def build_feature_history(client, earliest="2022-01-01"):
         client=client,
         start_date=earliest,
         end_date=yesterday,
-        combined_csv=None,  # <- don't create/require a file
+        # combined_csv=None,  # <- don't create/require a file
         force_fetch=True,
     )
 

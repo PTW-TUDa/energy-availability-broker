@@ -58,7 +58,7 @@ class ForecastProvider:
       `anyio.to_thread.run_sync` to keep the FastAPI event-loop happy.
     """
 
-    MODEL_PATH = Path(__file__).with_name("models") / "xgb_daily_model.pkl"
+    MODEL_DIR = Path(__file__).with_name("models")
 
     VALIDATE_INTERVAL_MIN = 15  # how often to compare with latest ENTSOE data
     REFRESH_INTERVAL_H = 6  # hours after which the cache is refreshed
@@ -67,8 +67,9 @@ class ForecastProvider:
         self._lock = anyio.Lock()
 
         # — expensive, do only once —
-        self._model = joblib.load(self.MODEL_PATH)
-        log.info("Loaded DAM model from %s", self.MODEL_PATH)
+        self._model_path = self._select_latest_model()
+        self._model = joblib.load(self._model_path)
+        log.info("Loaded DAM model from %s", self._model_path)
 
         self._entsoe = EntsoePandasClient(api_key=ENTSOE_API_TOKEN)
 
@@ -81,9 +82,7 @@ class ForecastProvider:
         )
         self.entsoe_connection = ENTSOEConnection.from_node(self.entsoe_node, api_token=ENTSOE_API_TOKEN)
 
-        # ------------------------------------------------------------------
         # Lazily populated state (at first request or a scheduled refresh)
-        # ------------------------------------------------------------------
         self._feature_history_df: pd.DataFrame | None = None
         # ^ Historical **feature matrix** (weather + lagged prices), reused
         #   on every refresh. Renamed from _history.
@@ -100,6 +99,50 @@ class ForecastProvider:
         self._validator_started = False
         self._validator_task: asyncio.Task | None = None
 
+    @staticmethod
+    def _parse_timestamp(path: Path) -> datetime | None:
+        """
+        Return a datetime extracted from filenames like:
+            xgb_daily_model_20250721T130459Z.pkl
+        If no timestamp is present, return ``None``.
+        """
+        import re
+
+        m = re.search(r"_([0-9]{8}T[0-9]{4,6})Z?\.pkl$", path.name)
+        if not m:
+            return None
+        return datetime.strptime(m.group(1), "%Y%m%dT%H%M%S")
+
+    def _select_latest_model(self) -> Path:
+        """
+        Pick the newest model in *models/*.
+
+        Priority
+        --------
+        1. Highest timestamp embedded in filename
+        2. If none have a timestamp, most recently *modified* file
+        3. If exactly one .pkl exists, return it
+        4. Otherwise raise ``FileNotFoundError``
+        """
+        if not self.MODEL_DIR.exists():
+            raise FileNotFoundError(f"Model directory '{self.MODEL_DIR}' does not exist")
+
+        pkl_files = list(self.MODEL_DIR.glob("*.pkl"))
+        if not pkl_files:
+            raise FileNotFoundError(f"No model checkpoints found in '{self.MODEL_DIR}'")
+        if len(pkl_files) == 1:
+            return pkl_files[0]
+
+        # 1) try timestamp parsing
+        dated: list[tuple[Path, datetime]] = [
+            (p, ts) for p in pkl_files if (ts := self._parse_timestamp(p)) is not None
+        ]
+        if dated:
+            return max(dated, key=lambda t: t[1])[0]
+
+        # 2) fallback: newest modification time
+        return max(pkl_files, key=lambda p: p.stat().st_mtime)
+
     async def get_forecast(self) -> list[dict]:
         """
         Return a 5-day, 15-minute forecast window that **always begins at the
@@ -113,10 +156,7 @@ class ForecastProvider:
             await self._ensure_validator_started()
             tz_now = pd.Timestamp.now(tz="Europe/Berlin")
 
-            # ----------------------------------------------------------------
             # 1) Determine whether the cache is stale or too short
-            # ----------------------------------------------------------------
-
             cache_stale = (
                 self._dam_price_forecast_df is None
                 or self._last_refresh is None
@@ -127,9 +167,7 @@ class ForecastProvider:
             if cache_stale:
                 await anyio.to_thread.run_sync(self._refresh_forecast)
 
-            # ----------------------------------------------------------------
             # 2) Slice the cached DataFrame to the *current* 5-day window
-            # ----------------------------------------------------------------
             window_start = tz_now.floor("15min")
             window_end = window_start + timedelta(days=5)
 
@@ -146,7 +184,6 @@ class ForecastProvider:
                 .to_dict(orient="records")
             )
 
-    # ------------------------------------------------------------------ #
     def _refresh_forecast(self):
         """Executed in a worker thread - heavy, blocking code is OK here."""
         log.info("Building / refreshing DAM forecast …")
@@ -165,9 +202,7 @@ class ForecastProvider:
             df_history=self._feature_history_df,
         )
 
-        # ------------------------------------------------------------------
         # Convert daily predictions to a continuous 15-minute series.
-        # ------------------------------------------------------------------
         price_forecast_15min = (
             df_pred[["prediction"]].resample("15min").ffill().rename(columns={"prediction": "Cost (EUR/MWh)"})
         )

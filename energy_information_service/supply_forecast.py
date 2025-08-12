@@ -22,15 +22,15 @@ class SupplyForecastProvider:
     REFRESH_MIN = 15  # rebuild cadence
 
     def __init__(self, forecast_provider: ForecastProvider) -> None:
-        # --- shared DAM forecast instance (no extra API load) -------------
+        # shared DAM forecast instance (no extra API load)
         self._fp = forecast_provider
 
-        # --- thread-safety -------------------------------------------------
+        # thread-safety
         self._lock = anyio.Lock()
         self._df: pd.DataFrame | None = None
         self._last_refresh: datetime | None = None
 
-        # --- ENTSO-E set-up -----------------------------------------------
+        # ENTSO-E set-up
         self._entsoe_node = NodeEntsoE(
             name="entsoe",
             url="https://web-api.tp.entsoe.eu/",
@@ -40,7 +40,7 @@ class SupplyForecastProvider:
         )
         self._entsoe_connection = ENTSOEConnection.from_node(self._entsoe_node, api_token=ENTSOE_API_TOKEN)
 
-        # --- Forecast.Solar set-up ----------------------------------------
+        # Forecast.Solar set-up
         self._pv_nodes = [
             NodeForecastSolar(
                 name="east",
@@ -69,16 +69,12 @@ class SupplyForecastProvider:
         ]
         self._pv_connection = ForecastSolarConnection.from_node(self._pv_nodes)
 
-    # ------------------------------------------------------------------
     # helper : round a timestamp down to the current 15-minute slice
-    # ------------------------------------------------------------------
     @staticmethod
     def _qh_floor(ts: datetime) -> datetime:
         return ts.replace(minute=(ts.minute // 15) * 15, second=0, microsecond=0)
 
-    # ------------------------------------------------------------------ #
     # Public API (used by FastAPI route)
-    # ------------------------------------------------------------------ #
     async def get_supply_forecast(self) -> list[dict]:
         """Return a 5-day quarter-hourly supply matrix as list[dict]."""
         async with self._lock:
@@ -101,16 +97,12 @@ class SupplyForecastProvider:
                 .to_dict(orient="records")
             )
 
-    # ------------------------------------------------------------------ #
     # Internal: heavy work done in a worker-thread
-    # ------------------------------------------------------------------ #
     def _refresh(self) -> None:
         """Blocking refresh: fetch / merge / tidy the three data sources."""
         log.info("Fetching Supply-Forecast Data …")
 
-        # ────────────────────────────────────────────────────────────────
         # 1) 5-day price forecast (shared instance, cached)
-        # ────────────────────────────────────────────────────────────────
         forecast_records = anyio.from_thread.run(self._fp.get_forecast)
         forecast_df = pd.DataFrame(forecast_records)
         forecast_df["Time"] = pd.to_datetime(forecast_df["Time"])
@@ -119,9 +111,7 @@ class SupplyForecastProvider:
         forecast_df["Source"] = 3  # 3 → Forecast
         forecast_df = forecast_df.drop(columns=["Cost (EUR/MWh)"]).set_index("Time")
 
-        # ────────────────────────────────────────────────────────────────
         # 2) 48 h Day-Ahead prices from ENTSO-E
-        # ────────────────────────────────────────────────────────────────
         from_time = self._qh_floor(datetime.now())
         to_time = from_time + timedelta(days=2)
         interval = timedelta(minutes=15)
@@ -146,9 +136,7 @@ class SupplyForecastProvider:
         forecast_df.update(day_ahead_prices)
         forecast_plus_day_ahead_prices = forecast_df.reset_index()
 
-        # ────────────────────────────────────────────────────────────────
         # 3) 5-day PV production from Forecast.Solar
-        # ────────────────────────────────────────────────────────────────
         pv_from = from_time
         pv_to = from_time + timedelta(days=5)
 
@@ -160,9 +148,7 @@ class SupplyForecastProvider:
         pv_raw["Source"] = 1  # 1 → PV
         pv_production = pv_raw.drop(columns=["PV1", "PV2"])
 
-        # ────────────────────────────────────────────────────────────────
         # 4) Final assembly
-        # ────────────────────────────────────────────────────────────────
         combined = pd.concat([pv_production, forecast_plus_day_ahead_prices], ignore_index=True)
 
         tidy = (

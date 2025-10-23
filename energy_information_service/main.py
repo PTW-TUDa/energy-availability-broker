@@ -11,6 +11,7 @@ from fastapi import Depends, FastAPI, Query, Response
 from energy_information_service.forecast import ForecastProvider
 from energy_information_service.services import DataProvider
 from energy_information_service.supply_forecast import SupplyForecastProvider
+from energy_information_service.type_annotations import EnergySource
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
@@ -73,12 +74,14 @@ async def get_data_csv(task: DataProvider = Depends(get_data_provider)):
 
 
 @app.get("/source/{energy_source}")
-async def get_data_by_source(energy_source: str, task: DataProvider = Depends(get_data_provider)):
+async def get_data_by_source(energy_source: EnergySource, task: DataProvider = Depends(get_data_provider)):
     """
     Returns data filtered by the specified energy source (e.g. 'PV' or 'Grid').
     Case-insensitive (i.e., 'pv' or 'PV' will work).
     """
-    filtered = await task.get_data_by_source(energy_source)
+    # use the underlying string
+    src = energy_source.value
+    filtered = await task.get_data_by_source(src)
 
     if filtered.empty:
         # Show the list of valid options so the client can recover
@@ -108,7 +111,7 @@ async def get_data_time_range(
         None,
         description="ISO-8601 end datetime, e.g. 2025-05-05T12:00:00+02:00",
     ),
-    source: str | None = Query(
+    source: EnergySource | None = Query(
         None,
         description="Optional energy source to filter by (e.g. 'PV' or 'Grid').",
     ),
@@ -120,7 +123,7 @@ async def get_data_time_range(
     # --- validate source first (case-insensitive) ---
     if source is not None:
         valid_sources = await task.get_sources()
-        if source.lower() not in (s.lower() for s in valid_sources):
+        if source.value.lower() not in (s.lower() for s in valid_sources):
             return {"error": f"Invalid energy source '{source}'. " f"Available sources:  {valid_sources}"}
     # --- fetch data ---
     filtered = await task.get_data_by_time_range(from_time, to_time, source)
@@ -134,7 +137,7 @@ async def get_data_time_range(
 
 @app.get("/data/horizon")
 async def get_data_horizon(
-    source: str | None = Query(
+    source: EnergySource | None = Query(
         None,
         description="Optional energy source to filter by (e.g. 'PV' or 'Grid').",
     ),
@@ -149,7 +152,7 @@ async def get_data_horizon(
     # --- validate source if provided (case-insensitive) ---
     if source is not None:
         valid_sources = await task.get_sources()
-        if source.lower() not in (s.lower() for s in valid_sources):
+        if source.value.lower() not in (s.lower() for s in valid_sources):
             return {"error": f"Invalid energy source '{source}'. " f"Available sources: {valid_sources}"}
 
     horizon = await task.get_horizon(source)
@@ -169,6 +172,46 @@ async def get_dam_forecast(task: ForecastProvider = Depends(get_forecast_provide
     return await task.get_forecast()
 
 
+@app.get("/dam-forecast/horizon")
+async def get_dam_forecast_horizon(
+    task: ForecastProvider = Depends(get_forecast_provider),
+):
+    """
+    Returns the time horizon (earliest & latest timestamp) available in the
+    cached DAM forecast:
+        {"start_time": "...", "end_time": "..."}
+    """
+    horizon = await task.get_horizon()
+    if horizon["start_time"] is None:
+        return {"error": "No forecast available"}
+    return horizon
+
+
+@app.get("/dam-forecast/time-range")
+async def get_dam_forecast_time_range(
+    from_time: datetime | None = Query(
+        None,
+        description="ISO-8601 start, e.g. 2025-08-18T06:00:00+02:00",
+    ),
+    to_time: datetime | None = Query(
+        None,
+        description="ISO-8601 end, e.g. 2025-08-18T12:00:00+02:00",
+    ),
+    task: ForecastProvider = Depends(get_forecast_provider),
+):
+    """
+    Returns a time-sliced subset of the cached 5-day DAM forecast as:
+        [{"Time": "...", "Cost (EUR/MWh)": ...}, …]
+    """
+    if from_time and to_time and from_time > to_time:
+        return {"error": "from_time must not be after to_time"}
+
+    rows = await task.get_data_by_time_range(from_time, to_time)
+    if not rows:
+        return {"error": "No data found for the given time range"}
+    return rows
+
+
 @app.get("/supply-forecast")
 async def get_supply_forecast(task: SupplyForecastProvider = Depends(get_supply_forecast_provider)):
     """
@@ -184,3 +227,88 @@ async def get_supply_forecast(task: SupplyForecastProvider = Depends(get_supply_
     us safely under the token's rate limit.
     """
     return await task.get_supply_forecast()
+
+
+@app.get("/supply-forecast/sources")
+async def get_supply_forecast_sources(task: SupplyForecastProvider = Depends(get_supply_forecast_provider)):
+    """
+    Returns the list of energy sources present in the 5-day supply-forecast matrix,
+    e.g. ["PV", "Grid", "Forecast"].
+    """
+    sources = await task.get_sources()
+    return {"sources": sources}
+
+
+@app.get("/supply-forecast/source/{energy_source}")
+async def get_supply_forecast_by_source(
+    energy_source: EnergySource,
+    task: SupplyForecastProvider = Depends(get_supply_forecast_provider),
+):
+    """
+    Returns rows for a single supply-forecast source (case-insensitive),
+    e.g. 'PV', 'Grid', or 'Forecast'.
+    """
+    valid_sources = await task.get_sources()
+    if energy_source.value.lower() not in (s.lower() for s in valid_sources):
+        return {"error": f"Invalid energy source '{energy_source}'. Available sources: {valid_sources}"}
+
+    return await task.get_data_by_source(energy_source)
+
+
+@app.get("/supply-forecast/time-range")
+async def get_supply_forecast_time_range(
+    from_time: datetime | None = Query(
+        None,
+        description="ISO-8601 start, e.g. 2025-08-18T06:00:00+02:00",
+    ),
+    to_time: datetime | None = Query(
+        None,
+        description="ISO-8601 end, e.g. 2025-08-18T12:00:00+02:00",
+    ),
+    source: EnergySource | None = Query(
+        None,
+        description="Optional source filter: 'PV', 'Grid', or 'Forecast'.",
+    ),
+    task: SupplyForecastProvider = Depends(get_supply_forecast_provider),
+):
+    # same validation style you already use on /data/time-range
+    if from_time and to_time and from_time > to_time:
+        return {"error": "from_time must not be after to_time"}
+
+    if source is not None:
+        valid_sources = await task.get_sources()
+        if source.value.lower() not in (s.lower() for s in valid_sources):
+            return {"error": f"Invalid energy source '{source}'. Available sources: {valid_sources}"}
+
+    rows = await task.get_data_by_time_range(from_time, to_time, source)
+    if not rows:
+        return {"error": "No data found for the given time range"}
+
+    return rows
+
+
+@app.get("/supply-forecast/horizon")
+async def get_supply_forecast_horizon(
+    source: EnergySource | None = Query(
+        None,
+        description="Optional energy source to filter by: 'PV', 'Grid', or 'Forecast'.",
+    ),
+    task: SupplyForecastProvider = Depends(get_supply_forecast_provider),
+):
+    """
+    Returns the time horizon (earliest & latest timestamp) available in the
+    cached supply-forecast matrix:
+        {"start_time": "...", "end_time": "..."}
+    """
+    # --- validate source if provided (case-insensitive), same style as /data/horizon ---
+    if source is not None:
+        valid_sources = await task.get_sources()
+        if source.value.lower() not in (s.lower() for s in valid_sources):
+            return {"error": f"Invalid energy source '{source}'. Available sources: {valid_sources}"}
+
+    horizon = await task.get_horizon(source)
+
+    if horizon["start_time"] is None:
+        return {"error": "No data found for the requested source"}
+
+    return horizon

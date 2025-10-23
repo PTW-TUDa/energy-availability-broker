@@ -276,3 +276,73 @@ class ForecastProvider:
         if not self._validator_started:
             self._validator_started = True
             self._validator_task = asyncio.create_task(self._validator_loop())  # keep ref
+
+    async def get_horizon(self) -> dict:
+        """
+        Return earliest/latest timestamps in the cached 5-day DAM forecast:
+            {"start_time": "<ISO-8601>|None", "end_time": "<ISO-8601>|None"}.
+        Refreshes cache if it's missing or older than REFRESH_INTERVAL_H hours.
+        """
+        async with self._lock:
+            await self._ensure_validator_started()
+
+            cache_missing = self._dam_price_forecast_df is None
+            cache_stale = self._last_refresh is None or (
+                pd.Timestamp.now("Europe/Berlin") - self._last_refresh
+            ) > pd.Timedelta(hours=self.REFRESH_INTERVAL_H)
+
+            if cache_missing or cache_stale:
+                await anyio.to_thread.run_sync(self._refresh_forecast)
+
+            df_dam_price = self._dam_price_forecast_df
+
+            if df_dam_price is None or df_dam_price.empty:
+                return {"start_time": None, "end_time": None}
+
+            start_ts = df_dam_price.index.min()
+            end_ts = df_dam_price.index.max()
+            return {"start_time": start_ts.isoformat(), "end_time": end_ts.isoformat()}
+
+    async def get_data_by_time_range(
+        self,
+        from_time: datetime | None = None,
+        to_time: datetime | None = None,
+    ) -> list[dict]:
+        """
+        Slice the cached 5-day, 15-minute DAM price forecast by time only.
+        When the requested window extends the cached horizon (to_time),
+        trigger a refresh to extend the cache.
+        Result is a list of dicts with 'Time' as ISO string and 'Cost (EUR/MWh)'.
+        """
+        async with self._lock:
+            await self._ensure_validator_started()
+
+            # Ensure cache exists / is fresh enough for a typical query
+            cache_missing = self._dam_price_forecast_df is None
+            cache_stale = self._last_refresh is None or (
+                pd.Timestamp.now("Europe/Berlin") - self._last_refresh
+            ) > pd.Timedelta(hours=self.REFRESH_INTERVAL_H)
+            if cache_missing or cache_stale:
+                await anyio.to_thread.run_sync(self._refresh_forecast)
+
+            df_dam_price = self._dam_price_forecast_df
+
+            # Default to full cached horizon if bounds are omitted
+            if from_time is None:
+                from_time = df_dam_price.index.min().to_pydatetime()
+            if to_time is None:
+                to_time = df_dam_price.index.max().to_pydatetime()
+
+            # If the requested window extends beyond the cached horizon, refresh
+            if to_time > df_dam_price.index.max().to_pydatetime():
+                await anyio.to_thread.run_sync(self._refresh_forecast)
+                df_dam_price = self._dam_price_forecast_df
+
+            sliced = df_dam_price.loc[pd.to_datetime(from_time) : pd.to_datetime(to_time)]
+
+            # Serialize to list-of-dicts with consistent Time formatting
+            return (
+                sliced.reset_index(names="Time")
+                .assign(Time=lambda d: d["Time"].dt.strftime("%Y-%m-%d %H:%M:%S%z"))
+                .to_dict(orient="records")
+            )

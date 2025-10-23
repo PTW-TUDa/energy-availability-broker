@@ -8,6 +8,7 @@ import numpy as np
 import openmeteo_requests
 import pandas as pd
 import requests_cache
+from entsoe.exceptions import NoMatchingDataError
 from retry_requests import retry
 
 cache_session = requests_cache.CachedSession(".cache", expire_after=3600)
@@ -418,11 +419,20 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
     df_forecast["price_lag1"] = np.nan
     df_forecast.to_csv("df_forecast.csv")
 
-    day_ahead_df = entsoe_client.query_day_ahead_prices(country_code="DE_LU", start=start_ts, end=end_ts).to_frame(
-        name="Day-Ahead Price [€/MWh]"
-    )
+    day_ahead_end = min(end_ts, start_ts + pd.Timedelta(days=1))
+    try:
+        day_ahead_series = entsoe_client.query_day_ahead_prices(country_code="DE_LU", start=start_ts, end=day_ahead_end)
+        # Align timezone to match the forecast index (Berlin)
+        day_ahead_df = day_ahead_series.tz_convert("Europe/Berlin").to_frame(name="Day-Ahead Price [€/MWh]")
+    except NoMatchingDataError:
+        log.warning(
+            "No ENTSO-E day-ahead data available yet for %s-%s; " "falling back to model-only seeding.",
+            start_ts,
+            day_ahead_end,
+        )
+        day_ahead_df = pd.DataFrame()
 
-    # Sinitial seed price
+    # initial seed price
     current_price = df_history.iloc[-1]["Day-Ahead Price [€/MWh]"]
 
     forecasts = []

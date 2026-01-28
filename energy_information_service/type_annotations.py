@@ -2,6 +2,6 @@ from enum import Enum
 
 
 class EnergySource(str, Enum):
-    PV = "PV"
+    PV = "PV forecast"
     GRID = "Grid"
-    FORECAST = "Forecast"
+    FORECAST = "Grid forecast"

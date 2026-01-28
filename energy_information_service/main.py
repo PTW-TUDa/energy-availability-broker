@@ -63,7 +63,7 @@ def get_supply_forecast_provider():
 #     return Response(price_matrix.to_csv(index=False), media_type="text/csv")
 
 
-@app.get("/energy")
+@app.get("/energy", tags=["energy availability"])
 async def energy_availability(
     from_time: datetime | None = Query(
         None,
@@ -101,8 +101,8 @@ async def energy_availability(
     return filtered.to_dict(orient="records")
 
 
-@app.get("/dam-forecast")
-async def day_ahead_market_forecast(
+@app.get("/dam-forecast", tags=["day-ahead price forecast"])
+async def day_ahead_price_forecast(
     from_time: datetime | None = Query(
         None,
         description="ISO-8601 start, e.g. 2025-08-18T06:00:00+02:00",
@@ -127,7 +127,7 @@ async def day_ahead_market_forecast(
     return rows
 
 
-@app.get("/supply-forecast")
+@app.get("/supply-forecast", tags=["energy supply forecast"])
 async def supply_forecast(
     from_time: datetime | None = Query(
         None,
@@ -163,7 +163,7 @@ async def supply_forecast(
     return rows
 
 
-@app.get("/energy/maximum-horizon")
+@app.get("/energy/maximum-horizon", tags=["energy availability"])
 async def energy_availability_horizon_available(
     source: EnergySource | None = Query(
         None,
@@ -191,7 +191,7 @@ async def energy_availability_horizon_available(
     return horizon
 
 
-@app.get("/dam-forecast/maximum-horizon")
+@app.get("/dam-forecast/maximum-horizon", tags=["day-ahead price forecast"])
 async def day_ahead_market_horizon_available(
     provider: DamForecastProvider = Depends(get_forecast_provider),
 ):
@@ -206,7 +206,7 @@ async def day_ahead_market_horizon_available(
     return horizon
 
 
-@app.get("/supply-forecast/maximum-horizon")
+@app.get("/supply-forecast/maximum-horizon", tags=["energy supply forecast"])
 async def supply_forecast_horizon_available(
     source: EnergySource | None = Query(
         None,
@@ -233,7 +233,7 @@ async def supply_forecast_horizon_available(
     return horizon
 
 
-@app.get("/energy/sources")
+@app.get("/energy/sources", tags=["energy availability"])
 async def energy_availability_sources(provider: DataProvider = Depends(get_data_provider)):
     """
     Returns the list of energy sources in energy availability.
@@ -243,7 +243,7 @@ async def energy_availability_sources(provider: DataProvider = Depends(get_data_
     return {"sources": sources}
 
 
-@app.get("/supply-forecast/sources")
+@app.get("/supply-forecast/sources", tags=["energy supply forecast"])
 async def supply_forecast_sources(provider: SupplyForecastProvider = Depends(get_supply_forecast_provider)):
     """
     Returns the list of energy sources present in the supply forecast.
@@ -252,6 +252,6 @@ async def supply_forecast_sources(provider: SupplyForecastProvider = Depends(get
     return {"sources": sources}
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def docs():
     return RedirectResponse(url="/docs")

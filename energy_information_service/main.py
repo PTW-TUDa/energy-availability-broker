@@ -41,7 +41,7 @@ async def lifespan(app: FastAPI):
     log.debug("App shutdown complete.")
 
 
-app = FastAPI(title="Energy Information Service", lifespan=lifespan)
+app = FastAPI(title="Energy Availability Service", lifespan=lifespan)
 
 
 def get_data_provider():

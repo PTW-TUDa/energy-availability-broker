@@ -126,7 +126,7 @@ class DummyAsyncScheduler:
 # Fixtures
 @pytest.fixture()
 def data_provider_mock():
-    m = AsyncMock(name="DataProviderMock")
+    m = AsyncMock(name="EnergyAvailabilityProviderMock")
 
     # /data
     async def get_data():

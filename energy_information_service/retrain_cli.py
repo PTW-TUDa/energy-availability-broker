@@ -19,7 +19,7 @@ import xgboost as xgb
 from entsoe import EntsoePandasClient
 
 from energy_information_service import secret  # expects secret.ENTSOE_API_KEY
-from energy_information_service.forecast_utils import (  # (project import)
+from energy_information_service.dayahead_forecast_utils import (  # (project import)
     create_features,
     get_combined_data,
 )

@@ -9,7 +9,7 @@ from eta_utility.connectors.entso_e import ENTSOEConnection
 from eta_utility.connectors.forecast_solar import ForecastSolarConnection
 from eta_utility.connectors.node import NodeEntsoE, NodeForecastSolar
 
-from energy_information_service.dam_forecast import DamForecastProvider
+from energy_information_service.dayahead_forecast import DamForecastProvider
 
 from .secret import ENTSOE_API_TOKEN, FORECAST_SOLAR_API_KEY
 

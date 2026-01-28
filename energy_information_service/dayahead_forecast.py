@@ -30,7 +30,7 @@ from entsoe import EntsoePandasClient
 from eta_utility.connectors.entso_e import ENTSOEConnection
 from eta_utility.connectors.node import NodeEntsoE
 
-from .forecast_utils import (
+from .dayahead_forecast_utils import (
     build_feature_history,
     predict_future_prices,
 )

@@ -3,22 +3,28 @@ from __future__ import annotations
 import logging
 from contextlib import asynccontextmanager
 from datetime import datetime
+from enum import Enum
 
 from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import Depends, FastAPI, Query
 from fastapi.responses import RedirectResponse
 
-from energy_information_service.dam_forecast import DamForecastProvider
-from energy_information_service.services import DataProvider
+from energy_information_service.dayahead_forecast import DamForecastProvider
+from energy_information_service.energy_availability import EnergyAvailabilityProvider
 from energy_information_service.supply_forecast import SupplyForecastProvider
-from energy_information_service.type_annotations import EnergySource
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
-data_provider = DataProvider()
+data_provider = EnergyAvailabilityProvider()
 forecast_provider = DamForecastProvider()
 supply_forecast_provider = SupplyForecastProvider(forecast_provider)
+
+
+class EnergySource(str, Enum):
+    PV = "PV forecast"
+    GRID = "Grid"
+    FORECAST = "Grid forecast"
 
 
 @asynccontextmanager
@@ -57,7 +63,7 @@ def get_supply_forecast_provider():
 
 
 # @app.get("/csv")
-# async def get_data_csv(provider: DataProvider = Depends(get_data_provider)):
+# async def get_data_csv(provider: EnergyAvailabilityProvider = Depends(get_data_provider)):
 #     """Serve the latest DataFrame as a CSV file."""
 #     price_matrix = await provider.get_data()
 #     return Response(price_matrix.to_csv(index=False), media_type="text/csv")
@@ -77,7 +83,7 @@ async def energy_availability(
         None,
         description="Optional energy source to filter by (e.g. 'PV' or 'Grid').",
     ),
-    provider: DataProvider = Depends(get_data_provider),
+    provider: EnergyAvailabilityProvider = Depends(get_data_provider),
 ):
     """
     Returns all information on energy availability filtered by the specified times and energy source.
@@ -169,7 +175,7 @@ async def energy_availability_horizon_available(
         None,
         description="Optional energy source to filter by (e.g. 'PV' or 'Grid').",
     ),
-    provider: DataProvider = Depends(get_data_provider),
+    provider: EnergyAvailabilityProvider = Depends(get_data_provider),
 ):
     """
     Returns the time horizon (earliest & latest timestamp as ISO-8601) currently available
@@ -234,7 +240,7 @@ async def supply_forecast_horizon_available(
 
 
 @app.get("/energy/sources", tags=["energy availability"])
-async def energy_availability_sources(provider: DataProvider = Depends(get_data_provider)):
+async def energy_availability_sources(provider: EnergyAvailabilityProvider = Depends(get_data_provider)):
     """
     Returns the list of energy sources in energy availability.
     """

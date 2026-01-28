@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
 
-class DataProvider:
+class EnergyAvailabilityProvider:
     def __init__(self):
         self._running = False
         self._task_group = None

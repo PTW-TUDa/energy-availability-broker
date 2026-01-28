@@ -115,25 +115,25 @@ class DataProvider:
         """
         Return the earliest and latest timestamps that are presently cached.
         If *energy_source* is specified, return the timestamps for that source only.
-        Result format: {"start_time": "<ISO-8601>", "end_time": "<ISO-8601>"}
+        Result format: {"from_time": "<ISO-8601>", "to_time": "<ISO-8601>"}
         """
         async with self._lock:
             if self._data.empty:
-                return {"start_time": None, "end_time": None}
+                return {"from_time": None, "to_time": None}
 
             price_matrix = self._data.copy()
             if energy_source is not None:
                 price_matrix = price_matrix[price_matrix["Source"].str.lower() == energy_source.lower()]
 
             if price_matrix.empty:
-                return {"start_time": None, "end_time": None}
+                return {"from_time": None, "to_time": None}
 
             start_ts: datetime = price_matrix["Time"].min()
             end_ts: datetime = price_matrix["Time"].max()
 
         return {
-            "start_time": start_ts.isoformat(),
-            "end_time": end_ts.isoformat(),
+            "from_time": start_ts.isoformat(),
+            "to_time": end_ts.isoformat(),
         }
 
     def fetch_data(self):

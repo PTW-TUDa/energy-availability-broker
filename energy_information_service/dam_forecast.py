@@ -280,7 +280,7 @@ class DamForecastProvider:
     async def get_horizon(self) -> dict:
         """
         Return earliest/latest timestamps in the cached 5-day DAM forecast:
-            {"start_time": "<ISO-8601>|None", "end_time": "<ISO-8601>|None"}.
+            {"from_time": "<ISO-8601>|None", "to_time": "<ISO-8601>|None"}.
         Refreshes cache if it's missing or older than REFRESH_INTERVAL_H hours.
         """
         async with self._lock:
@@ -297,11 +297,11 @@ class DamForecastProvider:
             df_dam_price = self._dam_price_forecast_df
 
             if df_dam_price is None or df_dam_price.empty:
-                return {"start_time": None, "end_time": None}
+                return {"from_time": None, "to_time": None}
 
             start_ts = df_dam_price.index.min()
             end_ts = df_dam_price.index.max()
-            return {"start_time": start_ts.isoformat(), "end_time": end_ts.isoformat()}
+            return {"from_time": start_ts.isoformat(), "to_time": end_ts.isoformat()}
 
     async def get_data_by_time_range(
         self,

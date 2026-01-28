@@ -114,7 +114,7 @@ async def day_ahead_price_forecast(
     provider: DamForecastProvider = Depends(get_forecast_provider),
 ):
     """
-    Returns a forecast for 5 x 24 h of 15 Minute Day-Ahead-Market prices as:
+    Returns a forecast for 5 x 24 h of 15 Minute Day-Ahead prices as:
         [{'Time': '...', 'Cost (EUR/MWh)': ...}, …]
     Optionally filtered by a time range.
     """
@@ -192,7 +192,7 @@ async def energy_availability_horizon_available(
 
 
 @app.get("/dam-forecast/maximum-horizon", tags=["day-ahead price forecast"])
-async def day_ahead_market_horizon_available(
+async def day_ahead_price_forecast_horizon_available(
     provider: DamForecastProvider = Depends(get_forecast_provider),
 ):
     """

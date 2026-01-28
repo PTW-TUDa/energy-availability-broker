@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 data_provider = DataProvider()
 forecast_provider = DamForecastProvider()
-supply_forecast_provider = SupplyForecastProvider(forecast_provider)
+supply_forecast_provider = SupplyForecastProvider()
 
 
 @asynccontextmanager

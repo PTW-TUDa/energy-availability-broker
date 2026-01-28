@@ -9,8 +9,6 @@ from eta_utility.connectors.entso_e import ENTSOEConnection
 from eta_utility.connectors.forecast_solar import ForecastSolarConnection
 from eta_utility.connectors.node import NodeEntsoE, NodeForecastSolar
 
-from energy_information_service.dam_forecast import DamForecastProvider  # just the *type*
-
 from .secret import ENTSOE_API_TOKEN, FORECAST_SOLAR_API_KEY
 
 log = logging.getLogger(__name__)
@@ -22,10 +20,7 @@ class SupplyForecastProvider:
     REFRESH_MIN = 15  # rebuild cadence
     TIME_FMT = "%Y-%m-%d %H:%M:%S%z"
 
-    def __init__(self, forecast_provider: DamForecastProvider) -> None:
-        # shared DAM forecast instance (no extra API load)
-        self._fp = forecast_provider
-
+    def __init__(self) -> None:
         # thread-safety
         self._lock = anyio.Lock()
         self._df: pd.DataFrame | None = None

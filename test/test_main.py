@@ -177,8 +177,8 @@ def data_provider_mock():
 
 
 @pytest.fixture()
-def forecast_provider_mock():
-    m = AsyncMock(name="ForecastProviderMock")
+def dam_forecast_provider_mock():
+    m = AsyncMock(name="DamForecastProviderMock")
     m.get_forecast.return_value = FORECAST_ROWS
     return m
 
@@ -191,12 +191,12 @@ def supply_forecast_provider_mock():
 
 
 @pytest.fixture()
-def client(monkeypatch, data_provider_mock, forecast_provider_mock, supply_forecast_provider_mock):
+def client(monkeypatch, data_provider_mock, dam_forecast_provider_mock, supply_forecast_provider_mock):
     monkeypatch.setattr(api_main, "AsyncScheduler", DummyAsyncScheduler, raising=True)
 
     # dependency overrides
     app.dependency_overrides[get_data_provider] = lambda: data_provider_mock
-    app.dependency_overrides[get_forecast_provider] = lambda: forecast_provider_mock
+    app.dependency_overrides[get_forecast_provider] = lambda: dam_forecast_provider_mock
     app.dependency_overrides[get_supply_forecast_provider] = lambda: supply_forecast_provider_mock
 
     with TestClient(app) as c:

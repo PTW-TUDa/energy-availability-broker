@@ -8,7 +8,7 @@ from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import Depends, FastAPI, Query, Response
 
-from energy_information_service.forecast import ForecastProvider
+from energy_information_service.dam_forecast import DamForecastProvider
 from energy_information_service.services import DataProvider
 from energy_information_service.supply_forecast import SupplyForecastProvider
 from energy_information_service.type_annotations import EnergySource
@@ -16,7 +16,7 @@ from energy_information_service.type_annotations import EnergySource
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 data_provider = DataProvider()
-forecast_provider = ForecastProvider()
+forecast_provider = DamForecastProvider()
 supply_forecast_provider = SupplyForecastProvider(forecast_provider)
 
 
@@ -164,7 +164,7 @@ async def get_data_horizon(
 
 
 @app.get("/dam-forecast")
-async def get_dam_forecast(task: ForecastProvider = Depends(get_forecast_provider)):
+async def get_dam_forecast(task: DamForecastProvider = Depends(get_forecast_provider)):
     """
     Returns 5 x 24 h of 15 Minute Day-Ahead-Market prices as:
         [{"Time": "...", "Cost (EUR/MWh)": ...}, …]
@@ -174,7 +174,7 @@ async def get_dam_forecast(task: ForecastProvider = Depends(get_forecast_provide
 
 @app.get("/dam-forecast/horizon")
 async def get_dam_forecast_horizon(
-    task: ForecastProvider = Depends(get_forecast_provider),
+    task: DamForecastProvider = Depends(get_forecast_provider),
 ):
     """
     Returns the time horizon (earliest & latest timestamp) available in the
@@ -197,7 +197,7 @@ async def get_dam_forecast_time_range(
         None,
         description="ISO-8601 end, e.g. 2025-08-18T12:00:00+02:00",
     ),
-    task: ForecastProvider = Depends(get_forecast_provider),
+    task: DamForecastProvider = Depends(get_forecast_provider),
 ):
     """
     Returns a time-sliced subset of the cached 5-day DAM forecast as:

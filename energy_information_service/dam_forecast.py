@@ -39,7 +39,7 @@ from .secret import ENTSOE_API_TOKEN
 log = logging.getLogger(__name__)
 
 
-class ForecastProvider:
+class DamForecastProvider:
     """
     Thread-safe, in-memory DAM-forecast cache.
 

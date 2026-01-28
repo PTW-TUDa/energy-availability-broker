@@ -99,7 +99,7 @@ poetry install --sync
 # 3) Configure secrets (see next section)
 
 # 4) Dev server
-poetry run fastapi ./energy_information_service/main.py
+poetry run fastapi run ./energy_information_service/main.py
 ```
 
 The service will start on `http://127.0.0.1:8000` by default.

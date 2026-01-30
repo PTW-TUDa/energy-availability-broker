@@ -70,7 +70,7 @@ class DamForecastProvider:
         log.info("Loaded DAM model from %s", self._model_path)
 
         self.entsoe_node = EntsoeNode(
-            name="entsoe",
+            name="entsoe_node",
             url="https://web-api.tp.entsoe.eu/",
             protocol="entsoe",
             bidding_zone="DEU-LUX",

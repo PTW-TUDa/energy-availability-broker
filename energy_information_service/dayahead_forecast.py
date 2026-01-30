@@ -26,15 +26,13 @@ from pathlib import Path
 import anyio
 import joblib
 import pandas as pd
-from entsoe import EntsoePandasClient
-from eta_utility.connectors.entso_e import ENTSOEConnection
-from eta_utility.connectors.node import NodeEntsoE
+from eta_nexus.connections import EntsoeConnection
+from eta_nexus.nodes import EntsoeNode
 
 from .dayahead_forecast_utils import (
     build_feature_history,
     predict_future_prices,
 )
-from .secret import ENTSOE_API_TOKEN
 
 log = logging.getLogger(__name__)
 
@@ -71,16 +69,14 @@ class DamForecastProvider:
         self._model = joblib.load(self._model_path)
         log.info("Loaded DAM model from %s", self._model_path)
 
-        self._entsoe = EntsoePandasClient(api_key=ENTSOE_API_TOKEN)
-
-        self.entsoe_node = NodeEntsoE(
+        self.entsoe_node = EntsoeNode(
             name="entsoe",
             url="https://web-api.tp.entsoe.eu/",
             protocol="entsoe",
             bidding_zone="DEU-LUX",
             endpoint="Price",
         )
-        self.entsoe_connection = ENTSOEConnection.from_node(self.entsoe_node, api_token=ENTSOE_API_TOKEN)
+        self.entsoe_connection = EntsoeConnection.from_node(self.entsoe_node)
 
         # Lazily populated state (at first request or a scheduled refresh)
         self._feature_history_df: pd.DataFrame | None = None

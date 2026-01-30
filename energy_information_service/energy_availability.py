@@ -5,11 +5,8 @@ from datetime import datetime, timedelta
 
 import anyio
 import pandas as pd
-from eta_utility.connectors.entso_e import ENTSOEConnection
-from eta_utility.connectors.forecast_solar import ForecastSolarConnection
-from eta_utility.connectors.node import NodeEntsoE, NodeForecastSolar
-
-from .secret import ENTSOE_API_TOKEN, FORECAST_SOLAR_API_KEY
+from eta_nexus.connections import EntsoeConnection, ForecastsolarConnection
+from eta_nexus.nodes import EntsoeNode, ForecastsolarNode
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
@@ -23,11 +20,10 @@ class EnergyAvailabilityProvider:
         self._data = pd.DataFrame()
 
         self.forecast_nodes = [
-            NodeForecastSolar(
+            ForecastsolarNode(
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
-                api_key=FORECAST_SOLAR_API_KEY,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -35,11 +31,10 @@ class EnergyAvailabilityProvider:
                 azimuth=[90, -90],
                 kwp=[23.31, 23.31],
             ),
-            NodeForecastSolar(
+            ForecastsolarNode(
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
-                api_key=FORECAST_SOLAR_API_KEY,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -48,16 +43,16 @@ class EnergyAvailabilityProvider:
                 kwp=[23.31, 23.31],
             ),
         ]
-        self.forecast_connection = ForecastSolarConnection.from_node(self.forecast_nodes)
+        self.forecast_connection = ForecastsolarConnection.from_node(self.forecast_nodes)
 
-        self.entsoe_node = NodeEntsoE(
+        self.entsoe_node = EntsoeNode(
             name="entsoe",
             url="https://web-api.tp.entsoe.eu/",
             protocol="entsoe",
             bidding_zone="DEU-LUX",
             endpoint="Price",
         )
-        self.entsoe_connection = ENTSOEConnection.from_node(self.entsoe_node, api_token=ENTSOE_API_TOKEN)
+        self.entsoe_connection = EntsoeConnection.from_node(self.entsoe_node)
 
     async def get_data(self):
         """Returns the latest DataFrame safely."""

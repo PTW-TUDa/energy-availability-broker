@@ -7,6 +7,7 @@ from enum import Enum
 
 from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
+from eta_nexus.util import autoload_env
 from fastapi import Depends, FastAPI, Query
 from fastapi.responses import RedirectResponse
 
@@ -16,6 +17,9 @@ from energy_information_service.supply_forecast import SupplyForecastProvider
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
+
+autoload_env()
+
 data_provider = EnergyAvailabilityProvider()
 forecast_provider = DamForecastProvider()
 supply_forecast_provider = SupplyForecastProvider(forecast_provider)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from datetime import datetime, timedelta
 
 import anyio
@@ -39,11 +40,13 @@ class SupplyForecastProvider:
         self._entsoe_connection = EntsoeConnection.from_node(self._entsoe_node)
 
         # Forecast.Solar set-up
+        key = os.getenv("FORECAST_SOLAR_API_TOKEN")
         self._pv_nodes = [
             ForecastsolarNode(
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
+                api_key=key,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -55,6 +58,7 @@ class SupplyForecastProvider:
                 name="west",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
+                api_key=key,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,

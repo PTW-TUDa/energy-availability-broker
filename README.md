@@ -110,7 +110,7 @@ Create a file named `.env` and keep your tokens there. Never commit this file to
 ENTSOE_API_TOKEN = "INSERT-YOUR-API-TOKEN-HERE"
 
 # Forecast.Solar API key
-FORECAST_SOLAR_API_KEY = "YOURAPIKEYHERE"
+FORECAST_SOLAR_API_TOKEN = "YOURAPITOKENHERE"
 ```
 
 ## Run the API

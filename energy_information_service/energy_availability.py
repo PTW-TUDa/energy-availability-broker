@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from datetime import datetime, timedelta
 
 import anyio
@@ -19,11 +20,13 @@ class EnergyAvailabilityProvider:
         self._lock = anyio.Lock()  # Ensures safe access to data
         self._data = pd.DataFrame()
 
+        key = os.getenv("FORECAST_SOLAR_API_TOKEN")
         self.forecast_nodes = [
             ForecastsolarNode(
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
+                api_key=key,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -35,6 +38,7 @@ class EnergyAvailabilityProvider:
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
+                api_key=key,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -175,3 +179,8 @@ class EnergyAvailabilityProvider:
             .replace({1: "PV", 2: "Grid"})
             .dropna()
         )
+
+
+if __name__ == "__main__":
+    provider = EnergyAvailabilityProvider()
+    data = provider.fetch_data()

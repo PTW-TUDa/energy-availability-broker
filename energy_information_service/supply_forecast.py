@@ -30,7 +30,7 @@ class SupplyForecastProvider:
 
         # ENTSO-E set-up
         self._entsoe_node = EntsoeNode(
-            name="entsoe",
+            name="entsoe_node",
             url="https://web-api.tp.entsoe.eu/",
             protocol="entsoe",
             bidding_zone="DEU-LUX",

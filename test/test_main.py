@@ -126,7 +126,7 @@ class DummyAsyncScheduler:
 # Fixtures
 @pytest.fixture()
 def data_provider_mock():
-    m = AsyncMock(name="DataProviderMock")
+    m = AsyncMock(name="EnergyAvailabilityProviderMock")
 
     # /data
     async def get_data():
@@ -164,9 +164,9 @@ def data_provider_mock():
         if source is not None:
             rows = [r for r in rows if str(r.get("Source", "")).lower() == source.lower()]
         if not rows:
-            return {"start_time": None, "end_time": None}
+            return {"from_time": None, "to_time": None}
         times = [_parse_iso(r["Time"]) for r in rows]
-        return {"start_time": min(times).isoformat(), "end_time": max(times).isoformat()}
+        return {"from_time": min(times).isoformat(), "to_time": max(times).isoformat()}
 
     m.get_data.side_effect = get_data
     m.get_data_by_source.side_effect = get_data_by_source
@@ -328,7 +328,7 @@ def test_horizon_invalid_source_error(client):
 
 def test_horizon_no_data_error_when_start_none(client, data_provider_mock):
     async def _no_horizon(_source):
-        return {"start_time": None, "end_time": None}
+        return {"from_time": None, "to_time": None}
 
     data_provider_mock.get_horizon.side_effect = _no_horizon
 
@@ -339,7 +339,7 @@ def test_horizon_no_data_error_when_start_none(client, data_provider_mock):
 
 def test_horizon_success(client):
     pv_times = [_parse_iso(r["Time"]) for r in DATA_RECORDS if r["Source"].lower() == "pv"]
-    expected = {"start_time": min(pv_times).isoformat(), "end_time": max(pv_times).isoformat()}
+    expected = {"from_time": min(pv_times).isoformat(), "to_time": max(pv_times).isoformat()}
     r = client.get("/data/horizon", params={"source": "PV"})
     assert r.status_code == 200
     assert r.json() == expected

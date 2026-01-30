@@ -29,7 +29,7 @@ import pandas as pd
 from eta_nexus.connections import EntsoeConnection
 from eta_nexus.nodes import EntsoeNode
 
-from .forecast_utils import (
+from .dayahead_forecast_utils import (
     build_feature_history,
     predict_future_prices,
 )
@@ -139,47 +139,6 @@ class DamForecastProvider:
         # 2) fallback: newest modification time
         return max(pkl_files, key=lambda p: p.stat().st_mtime)
 
-    async def get_forecast(self) -> list[dict]:
-        """
-        Return a 5-day, 15-minute forecast window that **always begins at the
-        current quarter-hour**.
-
-        * If the cached data are older than `REFRESH_INTERVAL_H` hours, or the
-          requested window extends beyond the cached horizon, a background
-          refresh is triggered.
-        """
-        async with self._lock:
-            await self._ensure_validator_started()
-            tz_now = pd.Timestamp.now(tz="Europe/Berlin")
-
-            # 1) Determine whether the cache is stale or too short
-            cache_stale = (
-                self._dam_price_forecast_df is None
-                or self._last_refresh is None
-                or (tz_now - self._last_refresh) > timedelta(hours=self.REFRESH_INTERVAL_H)
-            )
-
-            # If cache empty or stale, refresh in a worker-thread
-            if cache_stale:
-                await anyio.to_thread.run_sync(self._refresh_forecast)
-
-            # 2) Slice the cached DataFrame to the *current* 5-day window
-            window_start = tz_now.floor("15min")
-            window_end = window_start + timedelta(days=5)
-
-            # If the requested end extends beyond the cached horizon, refresh
-            if window_end > self._dam_price_forecast_df.index.max():
-                await anyio.to_thread.run_sync(self._refresh_forecast)
-
-            slice_df = self._dam_price_forecast_df.loc[window_start:window_end]
-
-            # Serialise to list-of-dicts with ISO-formatted strings
-            return (
-                slice_df.reset_index(names="Time")
-                .assign(Time=lambda d: d["Time"].dt.strftime("%Y-%m-%d %H:%M:%S%z"))
-                .to_dict(orient="records")
-            )
-
     def _refresh_forecast(self):
         """Executed in a worker thread - heavy, blocking code is OK here."""
         log.info("Building / refreshing DAM forecast …")
@@ -276,7 +235,7 @@ class DamForecastProvider:
     async def get_horizon(self) -> dict:
         """
         Return earliest/latest timestamps in the cached 5-day DAM forecast:
-            {"start_time": "<ISO-8601>|None", "end_time": "<ISO-8601>|None"}.
+            {"from_time": "<ISO-8601>|None", "to_time": "<ISO-8601>|None"}.
         Refreshes cache if it's missing or older than REFRESH_INTERVAL_H hours.
         """
         async with self._lock:
@@ -293,11 +252,52 @@ class DamForecastProvider:
             df_dam_price = self._dam_price_forecast_df
 
             if df_dam_price is None or df_dam_price.empty:
-                return {"start_time": None, "end_time": None}
+                return {"from_time": None, "to_time": None}
 
             start_ts = df_dam_price.index.min()
             end_ts = df_dam_price.index.max()
-            return {"start_time": start_ts.isoformat(), "end_time": end_ts.isoformat()}
+            return {"from_time": start_ts.isoformat(), "to_time": end_ts.isoformat()}
+
+    async def get_forecast(self) -> list[dict]:
+        """
+        Return a 5-day, 15-minute forecast window that **always begins at the
+        current quarter-hour**.
+
+        * If the cached data are older than `REFRESH_INTERVAL_H` hours, or the
+          requested window extends beyond the cached horizon, a background
+          refresh is triggered.
+        """
+        async with self._lock:
+            await self._ensure_validator_started()
+            tz_now = pd.Timestamp.now(tz="Europe/Berlin")
+
+            # 1) Determine whether the cache is stale or too short
+            cache_stale = (
+                self._dam_price_forecast_df is None
+                or self._last_refresh is None
+                or (tz_now - self._last_refresh) > timedelta(hours=self.REFRESH_INTERVAL_H)
+            )
+
+            # If cache empty or stale, refresh in a worker-thread
+            if cache_stale:
+                await anyio.to_thread.run_sync(self._refresh_forecast)
+
+            # 2) Slice the cached DataFrame to the *current* 5-day window
+            window_start = tz_now.floor("15min")
+            window_end = window_start + timedelta(days=5)
+
+            # If the requested end extends beyond the cached horizon, refresh
+            if window_end > self._dam_price_forecast_df.index.max():
+                await anyio.to_thread.run_sync(self._refresh_forecast)
+
+            slice_df = self._dam_price_forecast_df.loc[window_start:window_end]
+
+            # Serialise to list-of-dicts with ISO-formatted strings
+            return (
+                slice_df.reset_index(names="Time")
+                .assign(Time=lambda d: d["Time"].dt.strftime("%Y-%m-%d %H:%M:%S%z"))
+                .to_dict(orient="records")
+            )
 
     async def get_data_by_time_range(
         self,

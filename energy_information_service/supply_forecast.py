@@ -8,6 +8,8 @@ import pandas as pd
 from eta_nexus.connections import EntsoeConnection, ForecastsolarConnection
 from eta_nexus.nodes import EntsoeNode, ForecastsolarNode
 
+from energy_information_service.dayahead_forecast import DamForecastProvider
+
 log = logging.getLogger(__name__)
 
 
@@ -17,7 +19,10 @@ class SupplyForecastProvider:
     REFRESH_MIN = 15  # rebuild cadence
     TIME_FMT = "%Y-%m-%d %H:%M:%S%z"
 
-    def __init__(self) -> None:
+    def __init__(self, forecast_provider: DamForecastProvider) -> None:
+        # shared DAM forecast instance (no extra API load)
+        self._fp = forecast_provider
+
         # thread-safety
         self._lock = anyio.Lock()
         self._df: pd.DataFrame | None = None
@@ -211,7 +216,7 @@ class SupplyForecastProvider:
         Return earliest/latest timestamps currently cached in the 5-day supply matrix.
         If *energy_source* is given (e.g. 'PV' | 'Grid' | 'Forecast'), compute the
         horizon for that subset only.
-        Result: {"start_time": "<ISO-8601>|None", "end_time": "<ISO-8601>|None"}
+        Result: {"from_time": "<ISO-8601>|None", "to_time": "<ISO-8601>|None"}
         """
         # make sure cache is warm & current quarter-hour
         snapshot = await self._snapshot()
@@ -220,8 +225,8 @@ class SupplyForecastProvider:
             snapshot = snapshot[snapshot["Source"].str.lower() == energy_source.lower()]
 
         if snapshot.empty:
-            return {"start_time": None, "end_time": None}
+            return {"from_time": None, "to_time": None}
 
         start_ts = snapshot.index.min()
         end_ts = snapshot.index.max()
-        return {"start_time": start_ts.isoformat(), "end_time": end_ts.isoformat()}
+        return {"from_time": start_ts.isoformat(), "to_time": end_ts.isoformat()}

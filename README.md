@@ -36,18 +36,17 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 ```
 .
 ├─ energy_information_service/
-│  ├─ main.py                 # FastAPI application entrypoint
-│  ├─ forecast.py             # Forecast provider runtime
-│  ├─ forecast_utils.py       # Feature engineering, data assembly
-│  ├─ retrain.py              # CLI for retraining the price model
-│  ├─ supply_forecast.py      # Supply forecast helpers
-│  ├─ services.py             # Data provider/services
+│  ├─ main.py                     # FastAPI application entrypoint
+│  ├─ dayahead_forecast.py        # Day Ahead Price forecast provider class
+│  ├─ dayahead_forecast_utils.py  # Day Ahead Price forecast feature engineering and data assembly
+│  ├─ energy_availability.py      # Forecast provider class
+│  ├─ supply_forecast.py          # Supply forecast provider class
 │  ├─ models/xgb_daily_model.pkl
+│  ├─ retrain_cli.py              # CLI for retraining the price model
 │  └─ secret.py (local-only; do NOT commit real tokens)
 ├─ test/
 │  └─ test_main.py
-├─ .gitlab/docker/Dockerfile
-├─ poetry.lock / pyproject.toml
+├─ pyproject.toml
 └─ README.md
 ```
 
@@ -94,7 +93,7 @@ poetry install --sync
 # 3) Configure secrets (see next section)
 
 # 4) Dev server
-poetry run fastapi run ./energy_information_service/main.py
+poetry run fastapi dev ./energy_information_service/main.py
 ```
 
 The service will start on `http://127.0.0.1:8000` by default.

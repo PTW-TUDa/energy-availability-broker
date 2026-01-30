@@ -20,12 +20,14 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import logging
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
 import anyio
 import joblib
 import pandas as pd
+from entsoe import EntsoePandasClient
 from eta_nexus.connections import EntsoeConnection
 from eta_nexus.nodes import EntsoeNode
 
@@ -68,6 +70,8 @@ class DamForecastProvider:
         self._model_path = self._select_latest_model()
         self._model = joblib.load(self._model_path)
         log.info("Loaded DAM model from %s", self._model_path)
+
+        self._entsoe = EntsoePandasClient(api_key=os.getenv("ENTSOE_API_TOKEN", ""))
 
         self.entsoe_node = EntsoeNode(
             name="entsoe_node",

@@ -21,14 +21,13 @@ classifiers = [
 ]
 
 # Specify URLs for the project (optional)
-homepage = "https://www.ptw.tu-darmstadt.de" # TODO: change this
-documentation = "https://eta-utility.readthedocs.io/" # TODO: change this
-repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
+# homepage = "https://www.ptw.tu-darmstadt.de" # TODO: change this
+# documentation = "https://eta-utility.readthedocs.io/" # TODO: change this
+# repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
 
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
-eta-utility = {extras = [], version = "~3.2"}
+python = ">=3.10.16,<3.12"
 numpy = ">=1.23.2"
 fastapi = {extras = ["standard"], version="^0.115.8"}
 anyio = "^4.8.0"
@@ -40,6 +39,7 @@ entsoe-py = "^0.6"
 openmeteo-requests = "^1.6"
 retry-requests = "^2.0"
 requests-cache = "^1.2"
+eta-nexus = "^0.1.1"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -5,11 +5,8 @@ from datetime import datetime, timedelta
 
 import anyio
 import pandas as pd
-from eta_utility.connectors.entso_e import ENTSOEConnection
-from eta_utility.connectors.forecast_solar import ForecastSolarConnection
-from eta_utility.connectors.node import NodeEntsoE, NodeForecastSolar
-
-from .secret import ENTSOE_API_TOKEN, FORECAST_SOLAR_API_KEY
+from eta_nexus.connections import EntsoeConnection, ForecastsolarConnection
+from eta_nexus.nodes import EntsoeNode, ForecastsolarNode
 
 log = logging.getLogger(__name__)
 
@@ -27,22 +24,21 @@ class SupplyForecastProvider:
         self._last_refresh: datetime | None = None
 
         # ENTSO-E set-up
-        self._entsoe_node = NodeEntsoE(
+        self._entsoe_node = EntsoeNode(
             name="entsoe",
             url="https://web-api.tp.entsoe.eu/",
             protocol="entsoe",
             bidding_zone="DEU-LUX",
             endpoint="Price",
         )
-        self._entsoe_connection = ENTSOEConnection.from_node(self._entsoe_node, api_token=ENTSOE_API_TOKEN)
+        self._entsoe_connection = EntsoeConnection.from_node(self._entsoe_node)
 
         # Forecast.Solar set-up
         self._pv_nodes = [
-            NodeForecastSolar(
+            ForecastsolarNode(
                 name="east",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
-                api_key=FORECAST_SOLAR_API_KEY,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -50,11 +46,10 @@ class SupplyForecastProvider:
                 azimuth=[90, -90],
                 kwp=[23.31, 23.31],
             ),
-            NodeForecastSolar(
+            ForecastsolarNode(
                 name="west",
                 url="https://api.forecast.solar",
                 protocol="forecast_solar",
-                api_key=FORECAST_SOLAR_API_KEY,
                 data="watts",
                 latitude=49.86381,
                 longitude=8.68105,
@@ -63,7 +58,7 @@ class SupplyForecastProvider:
                 kwp=[23.31, 23.31],
             ),
         ]
-        self._pv_connection = ForecastSolarConnection.from_node(self._pv_nodes)
+        self._pv_connection = ForecastsolarConnection.from_node(self._pv_nodes)
 
     # helper : round a timestamp down to the current 15-minute slice
     @staticmethod

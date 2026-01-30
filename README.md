@@ -3,7 +3,6 @@
 Implements the **Energy Information Service** for the ETA Factory.
 It exposes a FastAPI application that serves Day-Ahead prices, extended by machine-learning based forecasts (e.g., a Day-Ahead-Market price forecast) and related utilities.
 
----
 
 ## Table of Contents
 
@@ -22,7 +21,6 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
----
 
 ## Features
 
@@ -32,7 +30,6 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 - Ready-to-use **Dockerfile** and GitLab CI scripts in `.gitlab/docker/`.
 - Auto-generated **OpenAPI** docs (Swagger UI & ReDoc).
 
----
 
 ## Repository Layout
 
@@ -56,7 +53,6 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 
 > You may also see runtime artifacts like `combined_data.csv`, `df_forecast.csv` and `.cache.sqlite` created during data pulls and retraining.
 
----
 
 ## Prerequisites
 
@@ -84,7 +80,6 @@ Verify:
 poetry --version
 ```
 
----
 
 ## Quick Start
 
@@ -105,37 +100,19 @@ poetry run fastapi run ./energy_information_service/main.py
 The service will start on `http://127.0.0.1:8000` by default.
 Jump to [API Documentation](#api-documentation) to explore endpoints.
 
----
 
 ## Configuration (secrets)
 
-**Create a file named `energy_information_service/secret.py` and keep your tokens there. Never commit this file to the repository.**
+Create a file named `.env` and keep your tokens there. Never commit this file to the repository.
 
-- Add `energy_information_service/secret.py` to `.gitignore`.
-- If it’s already tracked, remove it from Git history with:
-  ```bash
-  git rm --cached energy_information_service/secret.py
-  ```
-- Optionally, commit a safe template as `energy_information_service/secret.example.py` (no real keys).
-
-**Example content for `energy_information_service/secret.py`:**
+**Example content for `.env`:**
 ```python
-# energy_information_service/secret.py
-# NEVER commit real secrets. This file is for local/dev use only.
-
 # ENTSO-E Transparency Platform token
 ENTSOE_API_TOKEN = "INSERT-YOUR-API-TOKEN-HERE"
 
 # Forecast.Solar API key
 FORECAST_SOLAR_API_KEY = "YOURAPIKEYHERE"
-
 ```
-
-> The application imports from `energy_information_service.secret`
-> (e.g., `from energy_information_service import secret`
-> or `from .secret import ENTSOE_API_TOKEN, FORECAST_SOLAR_API_KEY`).
-
----
 
 ## Run the API
 
@@ -189,7 +166,6 @@ Once the server is running (dev or docker):
 
 These pages list all available endpoints exposed by `main.py` (for example, a `GET /dam-forecast` endpoint for day-ahead price predictions, if enabled in your build).
 
----
 
 ## Retraining the Price Model
 
@@ -208,7 +184,6 @@ Notes:
 - By default it pulls historical data, engineers features, trains, and writes the model (e.g., `xgb_daily_model.pkl`).
 - CSV artifacts such as `combined_data.csv` may be generated or updated.
 
----
 
 ## Testing & Code Quality
 
@@ -231,7 +206,6 @@ poetry run ruff check .
 poetry run ruff format .
 ```
 
----
 
 ## Troubleshooting
 
@@ -239,7 +213,7 @@ poetry run ruff format .
   The transparency platform may publish data with slight delays. If the latest quarter hours are `NaN`, try again later or confirm your timezone settings.
 
 - **Auth errors**
-  Ensure `ENTSOE_API_TOKEN` (and `ENTSOE_API_KEY` if required) and `FORECAST_SOLAR_API_KEY` are set in `secret.py`.
+  Ensure `ENTSOE_API_TOKEN` and `FORECAST_SOLAR_API_KEY` are set in `.env`.
 
 - **Port already in use**
   Start on another port: `--port 8010`.
@@ -247,7 +221,6 @@ poetry run ruff format .
 - **Windows tip**
   Prefer running commands in **PowerShell** (or WSL) rather than Git Bash when using Poetry and FastAPI CLI.
 
----
 
 ## License
 

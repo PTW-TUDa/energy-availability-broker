@@ -6,6 +6,7 @@ from datetime import datetime
 
 from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
+from eta_nexus.util import autoload_env
 from fastapi import Depends, FastAPI, Query, Response
 
 from energy_information_service.dam_forecast import DamForecastProvider
@@ -15,6 +16,9 @@ from energy_information_service.type_annotations import EnergySource
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
+
+autoload_env()
+
 data_provider = DataProvider()
 forecast_provider = DamForecastProvider()
 supply_forecast_provider = SupplyForecastProvider()

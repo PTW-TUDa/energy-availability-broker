@@ -8,6 +8,7 @@ Run with:
 from __future__ import annotations
 
 import logging
+import os
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -18,7 +19,6 @@ import pandas as pd
 import xgboost as xgb
 from entsoe import EntsoePandasClient
 
-from energy_information_service import secret  # expects secret.ENTSOE_API_KEY
 from energy_information_service.forecast_utils import (  # (project import)
     create_features,
     get_combined_data,
@@ -157,11 +157,7 @@ def retrain_daily(
 
 # CLI wrapper
 def main() -> None:  # entry-point wired in pyproject.toml
-    api_key = getattr(secret, "ENTSOE_API_TOKEN", None)
-    if not api_key:
-        raise RuntimeError("ENTSOE_API_TOKEN not found in energy_information_service/secret.py")
-
-    client = EntsoePandasClient(api_key=api_key)
+    client = EntsoePandasClient(api_key=os.environ["ENTSOE_API_KEY"])
     retrain_daily(client)
 
 

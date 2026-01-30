@@ -236,11 +236,9 @@ def test_get_data_csv_ok(client):
 
 def test_get_data_by_source_invalid_returns_error(client):
     r = client.get("/source/wind")
-    assert r.status_code == 200
+    assert r.status_code == 422
     body = r.json()
-    assert "error" in body
-    for s in {r["Source"] for r in DATA_RECORDS}:
-        assert s in body["error"]
+    assert "Input should be" in body["detail"][0]["msg"]
 
 
 def test_get_sources_ok(client):

@@ -50,6 +50,7 @@ pytest-mock = "^3.14.0"
 
 [tool.poetry.scripts]
 retrain_model = "energy_information_service.retrain:main"
+fastapi_dev = "energy_information_service.dev_cli:fastapi_dev"
 
 [tool.ruff]
 include = ["pyproject.toml", "energy_information_service/**/*.py", "test/**/*.py", "examples/**/*.py"]

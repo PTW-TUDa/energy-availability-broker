@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 
 REM Define the Python versions to build
 set "PYTHON_VERSIONS=3.11"
-set "POETRY_VERSION=2.1.4"
+set "POETRY_VERSION=2.3.2"
 set "DOCKERFILE_PATH=.gitlab/docker/Dockerfile"
 set "REGISTRY_URL=git-reg.ptw.maschinenbau.tu-darmstadt.de"
 set "IMAGE_PATH=/eta-fabrik/projekte/energy-information-service/"

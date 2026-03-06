@@ -2,7 +2,7 @@
 
 # Define build arguments for Python and Poetry
 ARG PYTHON_VERSION=3.11
-ARG POETRY_VERSION=2.1.4
+ARG POETRY_VERSION=2.3.2
 
 # Use the official Python slim image as our base
 FROM python:${PYTHON_VERSION}-slim AS final

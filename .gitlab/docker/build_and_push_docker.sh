@@ -5,8 +5,8 @@ GREEN="\033[0;32m"
 NC="\033[0m" # No Color
 
 # Define the Python versions to build
-PYTHON_VERSIONS=("3.10" "3.11")
-POETRY_VERSION="2.1.4"
+PYTHON_VERSIONS=("3.11")
+POETRY_VERSION="2.3.2"
 DOCKERFILE_PATH=".gitlab/docker/Dockerfile"
 REGISTRY_URL="git-reg.ptw.maschinenbau.tu-darmstadt.de"
 IMAGE_PATH="eta-fabrik/projekte/energy-information-service"

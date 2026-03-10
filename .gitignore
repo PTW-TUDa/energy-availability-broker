@@ -105,13 +105,14 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.env*
 .venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+.env.energy-information-service
 
 # Spyder project settings
 .spyderproject
@@ -143,3 +144,6 @@ cython_debug/
 energy_information_service/secret.py
 df_forecast.csv
 combined_data.csv
+
+# Wheels folder
+vendor/wheels/

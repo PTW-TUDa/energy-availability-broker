@@ -38,8 +38,11 @@ entsoe-py = "^0.6"
 openmeteo-requests = "^1.6"
 retry-requests = "^2.0"
 requests-cache = "^1.2"
-eta-nexus = "^0.1.1"
+eta-nexus = "0.1.0"
 marshmallow = "<4.0.0"
+py-base-types = {path = "vendor/wheels/py_base_types-4.1.3-py3-none-any.whl"}
+etaone-py-sdk = {path = "vendor/wheels/etaone_py_sdk-4.1.8-cp311-cp311-win_amd64.whl"}
+pint = ">=0.25.2"
 
 
 [tool.poetry.group.dev.dependencies]

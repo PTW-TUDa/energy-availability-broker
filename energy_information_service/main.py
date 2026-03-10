@@ -7,22 +7,24 @@ from enum import Enum
 
 from apscheduler import AsyncScheduler
 from apscheduler.triggers.interval import IntervalTrigger
-from eta_nexus.util import autoload_env
+from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, Query
 from fastapi.responses import RedirectResponse
 
 from energy_information_service.dayahead_forecast import DamForecastProvider
 from energy_information_service.energy_availability import EnergyAvailabilityProvider
+from energy_information_service.non_production_forecast import NonProductionPowerForecastProvider
 from energy_information_service.supply_forecast import SupplyForecastProvider
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
-autoload_env()
+load_dotenv(".env.energy-information-service", override=False)
 
 data_provider = EnergyAvailabilityProvider()
 forecast_provider = DamForecastProvider()
 supply_forecast_provider = SupplyForecastProvider(forecast_provider)
+non_production_forecast_provider = NonProductionPowerForecastProvider()
 
 
 class EnergySource(str, Enum):
@@ -64,6 +66,10 @@ def get_forecast_provider():
 
 def get_supply_forecast_provider():
     return supply_forecast_provider
+
+
+def get_non_production_forecast_provider():
+    return non_production_forecast_provider
 
 
 # @app.get("/csv")
@@ -260,6 +266,28 @@ async def supply_forecast_sources(provider: SupplyForecastProvider = Depends(get
     """
     sources = await provider.get_sources()
     return {"sources": sources}
+
+
+@app.get("/non_production-demand-forecast", tags=["non-production demand forecast"])
+async def non_production_power_forecast(
+    issue_time: datetime | None = Query(
+        None,
+        description="Optional ISO date/datetime interpreted as LOCAL time (NONPRODUCTION_TZ_LOCAL, default"
+        " Europe/Berlin) if no timezone offset is provided. Examples: 2025-11-17 or 2025-11-17T08:00:00. "
+        "Timezone-aware inputs like 2025-11-17T00:00:00+00:00 are also accepted.",
+    ),
+    provider: NonProductionPowerForecastProvider = Depends(get_non_production_forecast_provider),
+):
+    """
+    Returns a 48-hour hourly forecast:
+      [{'Time': '...', 'TimeLocal': '...', 'horizon_h': 1..48,
+      'non_production_power_kw': ..., 'ts_issue_utc': '...'}, ...]
+    """
+
+    try:
+        return provider.get_forecast(issue_time)
+    except Exception as e:
+        return {"error": str(e)}
 
 
 @app.get("/", include_in_schema=False)

@@ -120,7 +120,7 @@ FORECAST_SOLAR_API_TOKEN = "YOURAPITOKENHERE"
 Uses FastAPI’s CLI with hot reload (ideal during development):
 
 ```bash
-poetry run fastapi dev ./energy_information_service/main.py
+poetry run fastapi_dev
 # default: http://127.0.0.1:8000
 ```
 

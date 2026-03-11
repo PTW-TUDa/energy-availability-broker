@@ -268,7 +268,7 @@ async def supply_forecast_sources(provider: SupplyForecastProvider = Depends(get
     return {"sources": sources}
 
 
-@app.get("/non_production-demand-forecast", tags=["non-production demand forecast"])
+@app.get("/non-production-demand-forecast", tags=["non-production demand forecast"])
 async def non_production_power_forecast(
     issue_time: datetime | None = Query(
         None,

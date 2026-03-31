@@ -1,0 +1,566 @@
+{
+    "metadata": {
+        "instanceId": "33435488-40d4-4b27-be2c-569c4f418c23",
+        "efdmVersion": {
+            "versionNumber": "1.0.0",
+            "schemaLink": "https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/energy_flexibility_data_model/-/tree/main/efdm_v1.0"
+        },
+        "origin": {
+            "originId": "92b6f844-0b79-43b8-b277-5faaf8342714",
+            "timestamp": "2025-08-26T19:38:17.220568+02:00"
+        },
+        "modification": {
+            "modifierId": "92b6f844-0b79-43b8-b277-5faaf8342714",
+            "timestamp": "2025-08-26T19:38:17.220568+02:00"
+        },
+        "comment": "Optimized Time-Reconstructed Production Plan"
+    },
+    "flexibleLoadMeasures": [
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "37ebb23a-b8cc-4225-b145-ecdf4dcdf6de"
+            },
+            "flexibleLoadId": {
+                "uuid": "02fe2c03-65e1-4380-b404-af0d1e2e799f",
+                "comment": "Machine 1 for Job 1, Processes: Process 1, Process 2"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.55
+                    },
+                    "timestamp": "2025-11-13T09:56:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.55
+                    },
+                    "timestamp": "2025-11-13T10:04:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.627
+                    },
+                    "timestamp": "2025-11-13T10:04:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.627
+                    },
+                    "timestamp": "2025-11-13T10:25:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "cb9a10f7-3435-4b4b-ac29-adac8cb51165"
+            },
+            "flexibleLoadId": {
+                "uuid": "b7a3654a-73eb-42ad-8ef7-25f2d6d78ff8",
+                "comment": "Machine 1 for Job 1, Processes: Process 3, Process 4"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.546
+                    },
+                    "timestamp": "2025-11-13T10:30:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.546
+                    },
+                    "timestamp": "2025-11-13T10:59:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.674
+                    },
+                    "timestamp": "2025-11-13T10:59:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.674
+                    },
+                    "timestamp": "2025-11-13T11:06:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "770c284e-9876-4c95-bd70-5f475981f38a"
+            },
+            "flexibleLoadId": {
+                "uuid": "8b7e5f08-2976-46b1-87b7-545691bda320",
+                "comment": "Machine 2 for Job 1, Processes: Process 5, Process 6"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.637
+                    },
+                    "timestamp": "2025-11-13T12:00:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.637
+                    },
+                    "timestamp": "2025-11-13T12:07:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.518
+                    },
+                    "timestamp": "2025-11-13T12:07:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.518
+                    },
+                    "timestamp": "2025-11-13T12:15:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "cf72e78f-2126-4572-a595-d7399de564c0"
+            },
+            "flexibleLoadId": {
+                "uuid": "ebdf5e5b-688c-4d0a-870d-9a74180ad85c",
+                "comment": "Machine 3 for Job 1, Processes: Process 7, Process 8"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.1
+                    },
+                    "timestamp": "2025-11-13T12:18:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.1
+                    },
+                    "timestamp": "2025-11-13T12:19:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.1
+                    },
+                    "timestamp": "2025-11-13T12:19:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.1
+                    },
+                    "timestamp": "2025-11-13T12:20:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "2781af99-8d38-4503-bb08-28f6956db66e"
+            },
+            "flexibleLoadId": {
+                "uuid": "f3c4c3d0-ac02-4806-95e6-fa1ad6b7a0cb",
+                "comment": "Machine 4 for Job 1, Processes: Process 9, Process 10"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.927
+                    },
+                    "timestamp": "2025-11-13T13:00:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.927
+                    },
+                    "timestamp": "2025-11-13T13:12:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.894
+                    },
+                    "timestamp": "2025-11-13T13:12:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.894
+                    },
+                    "timestamp": "2025-11-13T13:18:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "de3a658e-5cd8-4a66-abd8-fd149cf4aa8d"
+            },
+            "flexibleLoadId": {
+                "uuid": "14d06903-15ac-4d55-9cb3-7338a5901e2b",
+                "comment": "Machine 4 for Job 1, Processes: Process 11, Process 12"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.551
+                    },
+                    "timestamp": "2025-11-13T13:22:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.551
+                    },
+                    "timestamp": "2025-11-13T14:02:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.918
+                    },
+                    "timestamp": "2025-11-13T14:02:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.918
+                    },
+                    "timestamp": "2025-11-13T14:12:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "383b625b-5d31-4b9f-87ce-6e9dca45fb74"
+            },
+            "flexibleLoadId": {
+                "uuid": "34c02b7a-7b45-4dae-855a-6fca532404f8",
+                "comment": "Machine 5 for Job 1, Processes: Process 13, Process 14"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.154
+                    },
+                    "timestamp": "2025-11-13T14:34:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.154
+                    },
+                    "timestamp": "2025-11-13T14:42:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 12.993
+                    },
+                    "timestamp": "2025-11-13T14:42:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 12.993
+                    },
+                    "timestamp": "2025-11-13T14:57:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "e191176b-8d84-4cdd-9555-c06cdbef4048"
+            },
+            "flexibleLoadId": {
+                "uuid": "129cc21b-d595-4a38-80b6-0eb9fb3753d8",
+                "comment": "Machine 1 for Job 2, Processes: Process 1, Process 2"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.55
+                    },
+                    "timestamp": "2025-11-13T11:12:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.55
+                    },
+                    "timestamp": "2025-11-13T11:20:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.627
+                    },
+                    "timestamp": "2025-11-13T11:20:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.627
+                    },
+                    "timestamp": "2025-11-13T11:41:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "b953bb70-cf3b-4231-a0a2-e3027149604c"
+            },
+            "flexibleLoadId": {
+                "uuid": "7bda6c33-0be0-4e4c-b268-bd3c2c9b95e9",
+                "comment": "Machine 1 for Job 2, Processes: Process 3, Process 4"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.546
+                    },
+                    "timestamp": "2025-11-13T11:46:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.546
+                    },
+                    "timestamp": "2025-11-13T12:15:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.674
+                    },
+                    "timestamp": "2025-11-13T12:15:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.674
+                    },
+                    "timestamp": "2025-11-13T12:22:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "52faa211-854d-4de9-a17a-7e375211bddc"
+            },
+            "flexibleLoadId": {
+                "uuid": "b7bed4ee-2b8c-4a5f-8da9-7ad060686fd1",
+                "comment": "Machine 2 for Job 2, Processes: Process 5, Process 6"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.637
+                    },
+                    "timestamp": "2025-11-13T12:28:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.637
+                    },
+                    "timestamp": "2025-11-13T12:35:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.518
+                    },
+                    "timestamp": "2025-11-13T12:35:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 2.518
+                    },
+                    "timestamp": "2025-11-13T12:43:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "11456d82-5c56-4c02-b618-aa6493d873e9"
+            },
+            "flexibleLoadId": {
+                "uuid": "c31c9e5f-d084-4606-96a3-775262db22cb",
+                "comment": "Machine 3 for Job 2, Processes: Process 7, Process 8"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.197
+                    },
+                    "timestamp": "2025-11-13T12:46:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.197
+                    },
+                    "timestamp": "2025-11-13T12:57:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 3.5
+                    },
+                    "timestamp": "2025-11-13T12:57:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 3.5
+                    },
+                    "timestamp": "2025-11-13T14:49:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "e869a376-5c17-4b44-bf1a-6fa9c4de8f64"
+            },
+            "flexibleLoadId": {
+                "uuid": "1fb9ce6b-9842-43f4-a884-ccfe9b5d7226",
+                "comment": "Machine 4 for Job 2, Processes: Process 9, Process 10"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.927
+                    },
+                    "timestamp": "2025-11-13T14:54:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.927
+                    },
+                    "timestamp": "2025-11-13T15:06:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.894
+                    },
+                    "timestamp": "2025-11-13T15:06:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.894
+                    },
+                    "timestamp": "2025-11-13T15:12:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "d145d6d8-105a-4eb6-9103-42c7f399d521"
+            },
+            "flexibleLoadId": {
+                "uuid": "e3c78f2e-50db-4c4e-a2c3-8156368ca571",
+                "comment": "Machine 4 for Job 2, Processes: Process 11, Process 12"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.551
+                    },
+                    "timestamp": "2025-11-13T15:16:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.551
+                    },
+                    "timestamp": "2025-11-13T15:56:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.918
+                    },
+                    "timestamp": "2025-11-13T15:56:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 1.918
+                    },
+                    "timestamp": "2025-11-13T16:06:00+02:00"
+                }
+            ]
+        },
+        {
+            "flexibleLoadMeasureId": {
+                "uuid": "e7c42a1c-d472-4e1c-8129-a0ea040b65f8"
+            },
+            "flexibleLoadId": {
+                "uuid": "6e8676be-1109-4e80-9f59-d5190b753af7",
+                "comment": "Machine 5 for Job 2, Processes: Process 13, Process 14"
+            },
+            "loadChangeProfile": [
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.154
+                    },
+                    "timestamp": "2025-11-13T16:14:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 0.154
+                    },
+                    "timestamp": "2025-11-13T16:22:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 12.993
+                    },
+                    "timestamp": "2025-11-13T16:22:00+02:00"
+                },
+                {
+                    "power": {
+                        "unit": "kW",
+                        "value": 12.993
+                    },
+                    "timestamp": "2025-11-13T16:37:00+02:00"
+                }
+            ]
+        }
+    ]
+}

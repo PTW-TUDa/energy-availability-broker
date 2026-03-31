@@ -7,8 +7,8 @@ from pathlib import Path
 import numpy as np
 import openmeteo_requests
 import pandas as pd
+import requests
 import requests_cache
-from entsoe.exceptions import NoMatchingDataError
 from retry_requests import retry
 
 cache_session = requests_cache.CachedSession(".cache", expire_after=3600)
@@ -34,6 +34,84 @@ FEATURES = [
     "dayofweek",
     "is_weekend",
 ]
+PRICE_COLUMN = "Day-Ahead Price [€/MWh]"
+
+
+def _fetch_entsoe_prices(entsoe, from_time, to_time) -> pd.DataFrame:
+    """Returns a DataFrame [Time, Grid Price 0.25h (EUR/MWh)] from the 15 min ENTSOE Day-Ahead Market prices
+    for the given time frame. The DataFrame is indexed by Time and sorted in ascending order."""
+
+    log.info(f"Fetching ENTSO-E data from {from_time} to {to_time}...")
+    price_frames = []
+    current_start = from_time
+    try:
+        while current_start < to_time:
+            # if the requested timeframe is above 1 year, split into multiple queries to avoid errors from ENTSO-E API
+            current_end = min(current_start + pd.Timedelta(days=300), to_time)
+            log.info(f"Fetching ENTSO-E data from {current_start} to {current_end}...")
+            for attempt in range(5):
+                try:
+                    price_data = entsoe.read_series(
+                        from_time=current_start.to_pydatetime(), to_time=current_end.to_pydatetime(), interval=900
+                    )
+                except requests.exceptions.HTTPError:
+                    log.warning(f"HTTP error when fetching ENTSO-E data (attempt {attempt + 1}/5). Retrying...")
+                else:
+                    break
+            price_frames.append(_normalize_price_frame(price_data, source="_fetch_entsoe_prices"))
+            current_start = current_end
+
+        if price_frames == []:
+            raise ValueError("No ENTSO-E price data fetched for the given time range.")
+
+        combined = pd.concat(price_frames)
+        combined = combined.loc[~combined.index.duplicated(), :].copy()
+        if combined.index.has_duplicates:
+            raise ValueError("Duplicate timestamps found in combined ENTSO-E price data after concatenation.")
+        return combined
+    except Exception:
+        log.exception("Error fetching day-ahead prices")
+    return pd.DataFrame()
+
+
+def _normalize_price_frame(price_data: pd.Series | pd.DataFrame, source: str = "") -> pd.DataFrame:
+    """
+    Normalize ENTSO-E day-ahead price payloads to a DataFrame with a canonical
+    `PRICE_COLUMN` name and timezone-aware DatetimeIndex.
+    """
+    if isinstance(price_data, pd.Series):
+        df_prices = price_data.to_frame(name=PRICE_COLUMN)
+    elif isinstance(price_data, pd.DataFrame):
+        df_prices = price_data.copy()
+        if isinstance(price_data.columns, pd.MultiIndex):
+            # if entsoe connection is used, the output should behave like this
+            df_prices = df_prices[[("entsoe_node_Price", "15")]]
+            df_prices.columns = [PRICE_COLUMN]
+        if PRICE_COLUMN not in df_prices.columns:
+            if "value" in df_prices.columns:
+                df_prices = df_prices.rename(columns={"value": PRICE_COLUMN})
+            elif len(df_prices.columns) == 1:
+                df_prices = df_prices.rename(columns={df_prices.columns[0]: PRICE_COLUMN})
+            else:
+                numeric_cols = [col for col in df_prices.columns if pd.api.types.is_numeric_dtype(df_prices[col])]
+                if len(numeric_cols) == 1:
+                    df_prices = df_prices.rename(columns={numeric_cols[0]: PRICE_COLUMN})
+                else:
+                    msg = (
+                        f"{source}: could not identify day-ahead price column in ENTSO-E response. "
+                        f"Columns: {list(df_prices.columns)}"
+                    )
+                    raise ValueError(msg)
+    else:
+        msg = f"{source}: unsupported ENTSO-E response type '{type(price_data).__name__}'"
+        raise TypeError(msg)
+
+    if PRICE_COLUMN not in df_prices.columns:
+        msg = f"{source}: normalized ENTSO-E data is missing required column '{PRICE_COLUMN}'"
+        raise ValueError(msg)
+
+    return df_prices
+
 
 # FETCH WEATHER DATA FROM OPEN-METEO
 
@@ -133,34 +211,7 @@ def fetch_multi_location_weather(start_date, end_date):
     return pd.concat(dfs, axis=1, join="outer").sort_index()
 
 
-# FETCH DAY-AHEAD PRICE FROM ENTSO-E
-
-
-def fetch_entsoe_day_ahead_prices(client, start_date="2020-01-01", end_date="2025-03-07"):
-    """
-    Fetch day-ahead electricity prices from ENTSO-E for the given date range
-    (e.g., DE_LU). Returns a DataFrame with a 'Day-Ahead Price [€/MWh]' column.
-    """
-    # Convert date strings to Timestamps
-    start_ts = pd.Timestamp(start_date, tz="Europe/Brussels")
-    end_ts = pd.Timestamp(end_date, tz="Europe/Brussels")
-
-    try:
-        df_prices = client.query_day_ahead_prices(country_code="DE_LU", start=start_ts, end=end_ts)
-        # Convert to a DataFrame with a named column
-        df_prices = df_prices.to_frame(name="Day-Ahead Price [€/MWh]")
-        # Make sure index is in UTC or a consistent timezone
-        df_prices.index = pd.to_datetime(df_prices.index, utc=True).tz_convert("Europe/Brussels")
-        return df_prices.sort_index()
-    except Exception:
-        log.exception("Error fetching day-ahead prices")
-        return pd.DataFrame()
-
-
-# COMBINE INTO ONE DATASET
-
-
-def get_combined_data(client, start_date, end_date, combined_csv="combined_data.csv", force_fetch=False):
+def get_combined_data(entsoe, start_date, end_date, combined_csv="combined_data.csv", force_fetch=False):
     """
     Fetches weather data and ENTSO-E day-ahead prices for the specified date range,
     then merges them into one DataFrame and saves to CSV.
@@ -181,13 +232,15 @@ def get_combined_data(client, start_date, end_date, combined_csv="combined_data.
 
     # 2) Fetch ENTSO-E day-ahead prices for the specified date range
     log.info("Fetching historical day ahead price")
-    df_prices = fetch_entsoe_day_ahead_prices(client, start_date=start_date, end_date=end_date)
+
+    start_datetime = pd.to_datetime(start_date, utc=True)
+    end_datetime = pd.to_datetime(end_date, utc=True)
+    df_prices = _fetch_entsoe_prices(entsoe=entsoe, from_time=start_datetime, to_time=end_datetime)
 
     # 3) Merge the datasets (using an outer join to keep all timestamps)
     df_combined = pd.concat([df_prices, df_weather], axis=1, join="outer").sort_index()
 
     # Optional: trim the DataFrame if needed (example slicing based on end_date)
-    df_combined = df_combined.loc[: f"{end_date} 23:00:00"]
     df_combined.to_csv(combined_csv)
     log.info(f"Saved combined dataset to {combined_csv}. Rows: {len(df_combined)}")
     return df_combined
@@ -266,11 +319,18 @@ def generate_lag_features(df_lag_ft: pd.DataFrame, lags: list[int] | None = None
       pd.DataFrame
           The DataFrame with additional lag feature columns.
     """
+    df_lag_ft = df_lag_ft.copy()
     if lags is None:  # create a fresh list each call
         lags = [1, 12, 24]
 
     # Generate lag features for target variable
-    price_column = "Day-Ahead Price [€/MWh]"
+    price_column = PRICE_COLUMN
+    if price_column not in df_lag_ft.columns:
+        msg = (
+            f"Missing required price column '{price_column}' for lag feature generation. "
+            f"Available columns: {list(df_lag_ft.columns)}"
+        )
+        raise ValueError(msg)
     for lag in lags:
         df_lag_ft[f"price_lag{lag}"] = df_lag_ft[price_column].shift(lag)
 
@@ -346,7 +406,7 @@ def fetch_multi_location_forecast(start_date, end_date):
     return pd.concat(dfs, axis=1, join="outer").sort_index()
 
 
-def build_feature_history(client, earliest="2022-01-01"):
+def build_feature_history(entsoe, earliest="2023-01-01"):
     """
     Downloads raw price+weather back to 'earliest', engineers every feature
     the model expects, and returns a ready-to-use DataFrame.
@@ -354,18 +414,18 @@ def build_feature_history(client, earliest="2022-01-01"):
     yesterday = (pd.Timestamp.now(tz="Europe/Berlin") - timedelta(days=1)).strftime("%Y-%m-%d")
 
     raw = get_combined_data(
-        client=client,
+        entsoe=entsoe,
         start_date=earliest,
         end_date=yesterday,
         # combined_csv=None,  # <- don't create/require a file
         force_fetch=True,
     )
-
+    raw = raw.interpolate(method="time")
     with_lags = generate_lag_features(raw)
     return create_features(with_lags)
 
 
-def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
+def predict_future_prices(reg, start_date, end_date, entsoe, df_history):
     """
     Hybrid / Recursive forecast for a multi-day horizon:
       - For the first 24 hours, use ENTSO-E day-ahead forecast prices for the "price_lag1" feature.
@@ -377,7 +437,7 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
       reg            : Trained forecasting model.
       start_date     : Start date (string, e.g., "2025-04-11") for the forecast period.
       end_date       : End date (string) for the forecast period.
-      entsoe_client  : Instance for querying ENTSO-E day-ahead prices.
+      entsoe         : Instance for querying ENTSO-E day-ahead prices.
       df_history     : Historical DataFrame with a datetime index and at least the column
                        "Day-Ahead Price [€/MWh]". This is used to seed the forecast.
 
@@ -386,14 +446,16 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
                        required lag features.
     """
 
-    start_ts = pd.Timestamp(start_date, tz="Europe/Brussels")
-    end_ts = pd.Timestamp(end_date, tz="Europe/Brussels")
+    start_ts = pd.Timestamp(start_date)
+    end_ts = pd.Timestamp(end_date)
+
+    if df_history.empty:
+        raise ValueError("No history data available.")
 
     # Fetch forecast weather data.
     df_forecast_raw = fetch_multi_location_forecast(start_date, end_date)
     if df_forecast_raw.empty:
-        log.warning("No forecast weather data returned.")
-        return None
+        raise ValueError("No forecast weather data returned.")
 
     # Create base weather forecast freatures
     df_forecast = create_forecast_features(df_forecast_raw)
@@ -420,11 +482,8 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
     df_forecast.to_csv("df_forecast.csv")
 
     day_ahead_end = min(end_ts, start_ts + pd.Timedelta(days=1))
-    try:
-        day_ahead_series = entsoe_client.query_day_ahead_prices(country_code="DE_LU", start=start_ts, end=day_ahead_end)
-        # Align timezone to match the forecast index (Berlin)
-        day_ahead_df = day_ahead_series.tz_convert("Europe/Berlin").to_frame(name="Day-Ahead Price [€/MWh]")
-    except NoMatchingDataError:
+    day_ahead_df = _fetch_entsoe_prices(entsoe, from_time=start_ts, to_time=day_ahead_end)
+    if day_ahead_df.empty:
         log.warning(
             "No ENTSO-E day-ahead data available yet for %s-%s; " "falling back to model-only seeding.",
             start_ts,
@@ -433,7 +492,7 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
         day_ahead_df = pd.DataFrame()
 
     # initial seed price
-    current_price = df_history.iloc[-1]["Day-Ahead Price [€/MWh]"]
+    current_price = df_history.iloc[-1][PRICE_COLUMN]
 
     forecasts = []
     df_forecast = df_forecast.sort_index()
@@ -443,7 +502,7 @@ def predict_future_prices(reg, start_date, end_date, entsoe_client, df_history):
         elapsed_seconds = (t - forecast_start).total_seconds()
         # For the first 24 hours, use ENTSO-E prices if available.
         if elapsed_seconds < 24 * 3600 and t in day_ahead_df.index:
-            current_price = day_ahead_df.loc[t, "Day-Ahead Price [€/MWh]"]
+            current_price = day_ahead_df.loc[t, PRICE_COLUMN]
         df_forecast.loc[t, "price_lag1"] = current_price
 
         # Prepare the feature vector

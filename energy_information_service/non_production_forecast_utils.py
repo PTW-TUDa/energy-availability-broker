@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 from collections.abc import Iterable
 from datetime import datetime
 from pathlib import Path
@@ -18,6 +17,8 @@ from etaone_py_sdk.models.tags import TagModel
 from openmeteo_sdk.Variable import Variable
 from retry_requests import retry
 
+from energy_information_service.config import SERVICE_CONFIG
+
 log = logging.getLogger(__name__)
 
 
@@ -29,6 +30,7 @@ WEATHER_COLS = {
 }
 
 _TIME_FMT = "%Y-%m-%d %H:%M:%S%z"
+QUARTER_HOUR = pd.Timedelta(minutes=15)
 
 
 def make_calendar_features_one_df(ts_issue_utc: pd.Timestamp, tz_local: str) -> pd.DataFrame:
@@ -199,6 +201,73 @@ def _as_utc_hour(ts: pd.Timestamp | str | datetime) -> pd.Timestamp:
     return ts.floor("h")
 
 
+def _as_local_timestamp(ts: pd.Timestamp | str | datetime, tz_local: str) -> pd.Timestamp:
+    ts = pd.Timestamp(ts)
+    return ts.tz_localize(tz_local) if ts.tzinfo is None else ts.tz_convert(tz_local)
+
+
+def resolve_issue_time_local(
+    *,
+    from_time: pd.Timestamp | str | datetime | None,
+    tz_local: str,
+) -> pd.Timestamp:
+    """Resolve the local issue time used as the forecast inference anchor."""
+
+    now_local = pd.Timestamp.now(tz=tz_local).floor("h")
+    if from_time not in (None, ""):
+        requested_local = _as_local_timestamp(from_time, tz_local).floor("h")
+        return min(requested_local, now_local)
+    return now_local
+
+
+def filter_non_production_forecast_window(
+    forecast_df: pd.DataFrame,
+    *,
+    from_time: pd.Timestamp | str | datetime | None,
+    to_time: pd.Timestamp | str | datetime | None,
+    tz_local: str,
+) -> pd.DataFrame:
+    """Filter a non-production forecast dataframe on local forecast timestamps."""
+
+    filtered = forecast_df.copy()
+
+    if from_time is not None:
+        from_ts = _as_local_timestamp(from_time, tz_local)
+        filtered = filtered.loc[filtered["ts_forecast_local"] >= from_ts]
+    if to_time is not None:
+        to_ts = _as_local_timestamp(to_time, tz_local)
+        filtered = filtered.loc[filtered["ts_forecast_local"] <= to_ts]
+
+    return filtered
+
+
+def resample_non_production_power_to_quarter_hour_energy(
+    forecast_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Convert hourly power predictions into quarter-hour energy rows."""
+
+    rows: list[dict] = []
+    for forecast in forecast_df.itertuples(index=False):
+        energy_kwh = float(forecast.y_pred_kw) * 0.25
+        start_local = pd.Timestamp(forecast.ts_forecast_local) - pd.Timedelta(hours=1)
+        start_utc = pd.Timestamp(forecast.ts_forecast_utc) - pd.Timedelta(hours=1)
+
+        for offset in range(4):
+            quarter_start_local = start_local + (offset * QUARTER_HOUR)
+            quarter_start_utc = start_utc + (offset * QUARTER_HOUR)
+            rows.append(
+                {
+                    "ts_issue_utc": forecast.ts_issue_utc,
+                    "horizon_h": forecast.horizon_h,
+                    "ts_forecast_utc": quarter_start_utc,
+                    "ts_forecast_local": quarter_start_local,
+                    "non_production_energy_kwh": round(energy_kwh, 6),
+                }
+            )
+
+    return pd.DataFrame(rows)
+
+
 def _fetch_points_in_chunks(
     platform,
     *,
@@ -243,7 +312,7 @@ def build_electrical_power_features_for_inference(
     net_col: str = "Elec_P_LVMDB_ETA_kW",
     lags: Iterable[int] = (*range(1, 49), 168),
     roll_windows: Iterable[int] = (6, 24, 168),
-    strict: bool = True,
+    strict: bool = False,
     apply_tag_patch: bool = True,
 ) -> pd.DataFrame:
     """
@@ -316,6 +385,11 @@ def build_electrical_power_features_for_inference(
                 f"ts_issue={ts_issue}\n"
                 f"Example missing timestamps (UTC): {missing[:10]}"
             )
+    elif hourly.notna().any():
+        # Small gaps in the measured series should not invalidate long rolling windows.
+        # Interpolate on the hourly grid so sparse missing points do not propagate into
+        # the lag/rolling features, while still failing later if the history is absent.
+        hourly = hourly.interpolate(method="time", limit_direction="both")
 
     # 5) Build features exactly like training logic (shift + rolling)
     features_df = pd.DataFrame({net_col: hourly})
@@ -466,43 +540,30 @@ def predict_out_of_production_power_48h(
     return out[["ts_issue_utc", "horizon_h", "ts_forecast_utc", "ts_forecast_local", "y_pred_kw"]]
 
 
-def run_non_prod_forecast_from_env(issue_time: str | None) -> list[dict]:
+def run_non_prod_forecast_from_env(
+    from_time: str | None = None,
+    to_time: str | None = None,
+) -> list[dict]:
     """
     Runs non_production forecast using ONLY environment variables.
     Intended to be called from a subprocess to avoid Trio/Uvicorn collisions.
     """
-    backend_url = os.environ["ETAONE_BACKEND_URL"]
-    email = os.environ["ETAONE_EMAIL"]
-    password = os.environ["ETAONE_PASSWORD"]
+    non_production_cfg = SERVICE_CONFIG.non_production
+    tz_local = non_production_cfg.tz_local
+    series_id = non_production_cfg.lvmdb_series_id
+    lat = non_production_cfg.latitude
+    lon = non_production_cfg.longitude
+    feature_columns_json = str(non_production_cfg.feature_columns_json)
+    models_dir = str(non_production_cfg.models_dir)
 
-    tz_local = os.getenv("NONPRODUCTION_TZ_LOCAL", "Europe/Berlin")
-    series_id = os.environ["ETA_LVMDB_SERIES_ID"]
-    lat = float(os.environ["ETAFABRIK_LATITUDE"])
-    lon = float(os.environ["ETAFABRIK_LONGITUDE"])
-
-    feature_columns_json = os.getenv(
-        "NONPRODUCTION_FEATURES_JSON",
-        "energy_information_service/models/non_production_forecast_48/feature_columns.json",
-    )
-    models_dir = os.getenv(
-        "NONPRODUCTION_MODELS_DIR",
-        "energy_information_service/models/non_production_forecast_48",
-    )
-
-    # parse issue_time as LOCAL time when no timezone is provided
-    if issue_time in (None, ""):
-        ts_local = pd.Timestamp.now(tz=tz_local)
-    else:
-        ts_local = pd.Timestamp(issue_time)
-        ts_local = ts_local.tz_localize(tz_local) if ts_local.tzinfo is None else ts_local.tz_convert(tz_local)
-
-    # floor in local time, then convert to UTC
-    ts_local = ts_local.floor("h")
+    ts_local = resolve_issue_time_local(from_time=from_time, tz_local=tz_local)
     ts_issue_utc = ts_local.tz_convert("UTC")
 
     openmeteo_client = make_openmeteo_client()
 
-    with EtaOne(backend_url=backend_url, email=email, password=password) as platform:
+    log.info("Running non-production forecast with ts_issue_utc=%s, tz_local=%s", ts_issue_utc, tz_local)
+
+    with EtaOne(_env_file=".env.etaone") as platform:
         forecast_df = predict_out_of_production_power_48h(
             platform=platform,
             ts_issue_utc=ts_issue_utc,
@@ -515,8 +576,13 @@ def run_non_prod_forecast_from_env(issue_time: str | None) -> list[dict]:
             openmeteo_client=openmeteo_client,
         )
 
-    forecast_df = forecast_df.copy()
+    forecast_df = resample_non_production_power_to_quarter_hour_energy(forecast_df)
+    forecast_df = filter_non_production_forecast_window(
+        forecast_df,
+        from_time=from_time,
+        to_time=to_time,
+        tz_local=tz_local,
+    ).copy()
     forecast_df["Time"] = forecast_df["ts_forecast_local"].dt.strftime(_TIME_FMT)
-    forecast_df["non_production_power_kw"] = forecast_df["y_pred_kw"].astype(float)
 
-    return forecast_df[["Time", "non_production_power_kw"]].to_dict(orient="records")
+    return forecast_df[["Time", "non_production_energy_kwh"]].to_dict(orient="records")

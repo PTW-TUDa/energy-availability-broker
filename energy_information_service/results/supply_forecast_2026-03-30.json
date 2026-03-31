@@ -1,0 +1,2882 @@
+[
+  {
+    "Time": "2026-03-30 16:00:00+0200",
+    "Energy (kWh)": 4.047,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 16:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.009980000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 16:15:00+0200",
+    "Energy (kWh)": 3.69925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 16:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.02334,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 16:30:00+0200",
+    "Energy (kWh)": 3.334,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 16:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.04426,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 16:45:00+0200",
+    "Energy (kWh)": 2.9435000000000002,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 16:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.063,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 17:00:00+0200",
+    "Energy (kWh)": 2.5475000000000003,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 17:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.04546,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 17:15:00+0200",
+    "Energy (kWh)": 2.14925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 17:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.06545999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 17:30:00+0200",
+    "Energy (kWh)": 1.7615,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 17:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.08679,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 17:45:00+0200",
+    "Energy (kWh)": 1.38425,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 17:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11209000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 18:00:00+0200",
+    "Energy (kWh)": 1.0445,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 18:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.085,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 18:15:00+0200",
+    "Energy (kWh)": 0.752,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 18:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10503,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 18:30:00+0200",
+    "Energy (kWh)": 0.50075,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 18:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10937999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 18:45:00+0200",
+    "Energy (kWh)": 0.31575,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 18:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1199,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 19:00:00+0200",
+    "Energy (kWh)": 0.17325,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 19:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11406000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 19:15:00+0200",
+    "Energy (kWh)": 0.08,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 19:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11728,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 19:30:00+0200",
+    "Energy (kWh)": 0.01275,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 19:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12226999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 19:45:00+0200",
+    "Energy (kWh)": 0.002,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 19:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.133,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 20:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 20:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12479000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 20:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 20:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12440000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 20:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 20:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12735,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 20:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 20:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12589,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 21:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 21:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13599,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 21:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 21:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12481999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 21:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 21:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12798,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 21:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 21:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11587,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 22:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 22:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12952000000000002,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 22:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 22:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11943000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 22:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 22:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1201,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 22:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 22:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11565,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 23:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 23:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11523,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 23:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 23:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11015000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 23:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 23:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1076,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-30 23:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-30 23:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10254,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 00:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 00:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.123,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 00:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 00:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10887999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 00:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 00:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1046,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 00:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 00:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1005,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 01:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 01:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10256,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 01:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 01:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10307,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 01:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 01:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10308,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 01:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 01:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10201,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 02:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 02:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10265,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 02:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 02:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10139,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 02:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 02:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10089000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 02:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 02:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10011,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 03:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 03:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10064000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 03:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 03:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10013,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 03:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 03:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10099,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 03:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 03:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10038,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 04:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 04:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10055,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 04:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 04:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10179,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 04:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 04:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10127,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 04:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 04:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10311,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 05:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 05:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09484000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 05:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 05:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09942000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 05:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 05:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11297,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 05:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 05:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12494,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 06:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 06:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11377,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 06:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 06:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1275,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 06:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 06:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15111000000000002,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 06:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 06:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15641,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 07:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 07:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15247,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 07:15:00+0200",
+    "Energy (kWh)": 1.553,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 07:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.153,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 07:30:00+0200",
+    "Energy (kWh)": 2.0955,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 07:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15444,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 07:45:00+0200",
+    "Energy (kWh)": 2.48475,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 07:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14859,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 08:00:00+0200",
+    "Energy (kWh)": 2.8555,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 08:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2034,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 08:15:00+0200",
+    "Energy (kWh)": 3.218,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 08:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.18022,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 08:30:00+0200",
+    "Energy (kWh)": 3.56075,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 08:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14556,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 08:45:00+0200",
+    "Energy (kWh)": 3.87625,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 08:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12598,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 09:00:00+0200",
+    "Energy (kWh)": 4.19825,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 09:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.16315000000000002,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 09:15:00+0200",
+    "Energy (kWh)": 4.479,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 09:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13476,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 09:30:00+0200",
+    "Energy (kWh)": 4.72675,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 09:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12531,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 09:45:00+0200",
+    "Energy (kWh)": 4.96525,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 09:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.119,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 10:00:00+0200",
+    "Energy (kWh)": 5.16725,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 10:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11709,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 10:15:00+0200",
+    "Energy (kWh)": 5.3774999999999995,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 10:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10884999999999999,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 10:30:00+0200",
+    "Energy (kWh)": 5.5715,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 10:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09811,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 10:45:00+0200",
+    "Energy (kWh)": 5.7379999999999995,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 10:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09297,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 11:00:00+0200",
+    "Energy (kWh)": 5.86625,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 11:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09903,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 11:15:00+0200",
+    "Energy (kWh)": 5.91275,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 11:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09308,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 11:30:00+0200",
+    "Energy (kWh)": 5.9345,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 11:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.08413,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 11:45:00+0200",
+    "Energy (kWh)": 5.92775,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 11:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.07316,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 12:00:00+0200",
+    "Energy (kWh)": 5.902,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 12:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.08878,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 12:15:00+0200",
+    "Energy (kWh)": 5.8420000000000005,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 12:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.08234,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 12:30:00+0200",
+    "Energy (kWh)": 5.7645,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 12:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.07818000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 12:45:00+0200",
+    "Energy (kWh)": 5.66175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 12:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.06538,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 13:00:00+0200",
+    "Energy (kWh)": 5.5752500000000005,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 13:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.07354000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 13:15:00+0200",
+    "Energy (kWh)": 5.5155,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 13:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.060899999999999996,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 13:30:00+0200",
+    "Energy (kWh)": 5.4475,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 13:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.04639,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 13:45:00+0200",
+    "Energy (kWh)": 5.35175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 13:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.04007,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 14:00:00+0200",
+    "Energy (kWh)": 5.23875,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 14:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.0512,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 14:15:00+0200",
+    "Energy (kWh)": 5.0920000000000005,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 14:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.051340000000000004,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 14:30:00+0200",
+    "Energy (kWh)": 4.9135,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 14:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.054020000000000006,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 14:45:00+0200",
+    "Energy (kWh)": 4.704,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 14:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.057390000000000004,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 15:00:00+0200",
+    "Energy (kWh)": 4.538,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 15:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.054,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 15:15:00+0200",
+    "Energy (kWh)": 4.3545,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 15:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.0624,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 15:30:00+0200",
+    "Energy (kWh)": 4.1665,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 15:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.06276,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 15:45:00+0200",
+    "Energy (kWh)": 3.9655,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 15:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.07305,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 16:00:00+0200",
+    "Energy (kWh)": 3.7129999999999996,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 16:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.06403,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 16:15:00+0200",
+    "Energy (kWh)": 3.4135,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 16:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.0804,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 16:30:00+0200",
+    "Energy (kWh)": 3.115,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 16:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.08927,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 16:45:00+0200",
+    "Energy (kWh)": 2.78825,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 16:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09517,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 17:00:00+0200",
+    "Energy (kWh)": 2.44725,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 17:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.09606,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 17:15:00+0200",
+    "Energy (kWh)": 2.09375,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 17:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10122,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 17:30:00+0200",
+    "Energy (kWh)": 1.7442499999999999,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 17:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10581,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 17:45:00+0200",
+    "Energy (kWh)": 1.39725,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 17:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14078,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 18:00:00+0200",
+    "Energy (kWh)": 1.07075,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 18:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10858,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 18:15:00+0200",
+    "Energy (kWh)": 0.77925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 18:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14183,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 18:30:00+0200",
+    "Energy (kWh)": 0.52175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 18:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15872,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 18:45:00+0200",
+    "Energy (kWh)": 0.33075,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 18:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.19487000000000002,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 19:00:00+0200",
+    "Energy (kWh)": 0.1805,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 19:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15347999999999998,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 19:15:00+0200",
+    "Energy (kWh)": 0.08349999999999999,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 19:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.17656,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 19:30:00+0200",
+    "Energy (kWh)": 0.013,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 19:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.18196,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 19:45:00+0200",
+    "Energy (kWh)": 0.002,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 19:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.18800999999999998,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 20:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 20:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.18975,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 20:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 20:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.18074,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 20:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 20:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.17354,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 20:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 20:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15999000000000002,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 21:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 21:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.20116,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 21:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 21:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.17146,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 21:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 21:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.16262000000000001,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 21:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 21:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15166,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 22:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 22:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.16913999999999998,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 22:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 22:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1613,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 22:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 22:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15294999999999997,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 22:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 22:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14993,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 23:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 23:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15297999999999998,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 23:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 23:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14956,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 23:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 23:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14996,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-03-31 23:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-03-31 23:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1414,
+    "Source": "Grid"
+  },
+  {
+    "Time": "2026-04-01 00:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 00:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12356168365478516,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 00:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 00:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12356168365478516,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 00:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 00:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12356168365478516,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 00:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 00:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12356168365478516,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 01:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 01:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12623509979248046,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 01:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 01:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12623509979248046,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 01:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 01:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12623509979248046,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 01:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 01:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12623509979248046,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 02:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 02:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12748953247070313,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 02:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 02:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12748953247070313,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 02:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 02:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12748953247070313,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 02:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 02:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12748953247070313,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 03:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 03:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13308535766601562,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 03:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 03:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13308535766601562,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 03:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 03:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13308535766601562,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 03:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 03:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.13308535766601562,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 04:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 04:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1660653076171875,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 04:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 04:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1660653076171875,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 04:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 04:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1660653076171875,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 04:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 04:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1660653076171875,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 05:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 05:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25903897094726563,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 05:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 05:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25903897094726563,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 05:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 05:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25903897094726563,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 05:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 05:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25903897094726563,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 06:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 06:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25701730346679685,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 06:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 06:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25701730346679685,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 06:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 06:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25701730346679685,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 06:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 06:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.25701730346679685,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 07:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 07:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.26150845336914064,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 07:15:00+0200",
+    "Energy (kWh)": 1.41975,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 07:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.26150845336914064,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 07:30:00+0200",
+    "Energy (kWh)": 1.91625,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 07:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.26150845336914064,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 07:45:00+0200",
+    "Energy (kWh)": 2.27875,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 07:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.26150845336914064,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 08:00:00+0200",
+    "Energy (kWh)": 2.61075,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 08:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.20993968200683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 08:15:00+0200",
+    "Energy (kWh)": 2.93975,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 08:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.20993968200683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 08:30:00+0200",
+    "Energy (kWh)": 3.27625,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 08:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.20993968200683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 08:45:00+0200",
+    "Energy (kWh)": 3.5865,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 08:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.20993968200683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 09:00:00+0200",
+    "Energy (kWh)": 3.8795,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 09:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2079029083251953,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 09:15:00+0200",
+    "Energy (kWh)": 4.1475,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 09:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2079029083251953,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 09:30:00+0200",
+    "Energy (kWh)": 4.40725,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 09:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2079029083251953,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 09:45:00+0200",
+    "Energy (kWh)": 4.6495,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 09:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2079029083251953,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 10:00:00+0200",
+    "Energy (kWh)": 4.8782499999999995,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 10:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.23986338806152344,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 10:15:00+0200",
+    "Energy (kWh)": 5.101,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 10:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.23986338806152344,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 10:30:00+0200",
+    "Energy (kWh)": 5.3265,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 10:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.23986338806152344,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 10:45:00+0200",
+    "Energy (kWh)": 5.4925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 10:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.23986338806152344,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 11:00:00+0200",
+    "Energy (kWh)": 5.6392500000000005,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 11:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.22779151916503906,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 11:15:00+0200",
+    "Energy (kWh)": 5.7615,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 11:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.22779151916503906,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 11:30:00+0200",
+    "Energy (kWh)": 5.87,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 11:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.22779151916503906,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 11:45:00+0200",
+    "Energy (kWh)": 5.949,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 11:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.22779151916503906,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 12:00:00+0200",
+    "Energy (kWh)": 6.00675,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 12:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.235005126953125,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 12:15:00+0200",
+    "Energy (kWh)": 6.047499999999999,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 12:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.235005126953125,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 12:30:00+0200",
+    "Energy (kWh)": 6.09175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 12:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.235005126953125,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 12:45:00+0200",
+    "Energy (kWh)": 6.0615000000000006,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 12:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.235005126953125,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 13:00:00+0200",
+    "Energy (kWh)": 6.0175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 13:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.24372621154785157,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 13:15:00+0200",
+    "Energy (kWh)": 5.9785,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 13:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.24372621154785157,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 13:30:00+0200",
+    "Energy (kWh)": 5.9475,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 13:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.24372621154785157,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 13:45:00+0200",
+    "Energy (kWh)": 5.84225,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 13:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.24372621154785157,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 14:00:00+0200",
+    "Energy (kWh)": 5.7335,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 14:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2711312561035156,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 14:15:00+0200",
+    "Energy (kWh)": 5.608750000000001,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 14:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2711312561035156,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 14:30:00+0200",
+    "Energy (kWh)": 5.44175,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 14:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2711312561035156,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 14:45:00+0200",
+    "Energy (kWh)": 5.259,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 14:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2711312561035156,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 15:00:00+0200",
+    "Energy (kWh)": 5.0440000000000005,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 15:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2880374450683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 15:15:00+0200",
+    "Energy (kWh)": 4.852,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 15:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2880374450683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 15:30:00+0200",
+    "Energy (kWh)": 4.6635,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 15:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2880374450683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 15:45:00+0200",
+    "Energy (kWh)": 4.412,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 15:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2880374450683594,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 16:00:00+0200",
+    "Energy (kWh)": 4.13275,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 16:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.3351798706054688,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 16:15:00+0200",
+    "Energy (kWh)": 3.83,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 16:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.3351798706054688,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 16:30:00+0200",
+    "Energy (kWh)": 3.527,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 16:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.3351798706054688,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 16:45:00+0200",
+    "Energy (kWh)": 3.17925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 16:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.3351798706054688,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 17:00:00+0200",
+    "Energy (kWh)": 2.807,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 17:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2999002990722656,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 17:15:00+0200",
+    "Energy (kWh)": 2.4135,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 17:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2999002990722656,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 17:30:00+0200",
+    "Energy (kWh)": 2.01275,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 17:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2999002990722656,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 17:45:00+0200",
+    "Energy (kWh)": 1.6095,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 17:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2999002990722656,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 18:00:00+0200",
+    "Energy (kWh)": 1.23875,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 18:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2444573516845703,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 18:15:00+0200",
+    "Energy (kWh)": 0.9164999999999999,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 18:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2444573516845703,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 18:30:00+0200",
+    "Energy (kWh)": 0.62375,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 18:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2444573516845703,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 18:45:00+0200",
+    "Energy (kWh)": 0.39925,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 18:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.2444573516845703,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 19:00:00+0200",
+    "Energy (kWh)": 0.222,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 19:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15695631408691407,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 19:15:00+0200",
+    "Energy (kWh)": 0.10350000000000001,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 19:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15695631408691407,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 19:30:00+0200",
+    "Energy (kWh)": 0.01625,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 19:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15695631408691407,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 19:45:00+0200",
+    "Energy (kWh)": 0.00275,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 19:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.15695631408691407,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 20:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 20:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14699832153320314,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 20:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 20:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14699832153320314,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 20:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 20:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14699832153320314,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 20:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 20:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.14699832153320314,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 21:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 21:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12909849548339844,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 21:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 21:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12909849548339844,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 21:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 21:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12909849548339844,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 21:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 21:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.12909849548339844,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 22:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 22:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11523300170898437,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 22:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 22:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11523300170898437,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 22:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 22:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11523300170898437,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 22:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 22:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.11523300170898437,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 23:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 23:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10781454467773438,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 23:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 23:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10781454467773438,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 23:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 23:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10781454467773438,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-01 23:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-01 23:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10781454467773438,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 00:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 00:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10397559356689454,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 00:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 00:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10397559356689454,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 00:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 00:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10397559356689454,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 00:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 00:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10397559356689454,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 01:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 01:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1006673583984375,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 01:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 01:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1006673583984375,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 01:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 01:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1006673583984375,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 01:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 01:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1006673583984375,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 02:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 02:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10145811462402343,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 02:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 02:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10145811462402343,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 02:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 02:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10145811462402343,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 02:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 02:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.10145811462402343,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 03:00:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 03:00:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1075416030883789,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 03:15:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 03:15:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1075416030883789,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 03:30:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 03:30:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1075416030883789,
+    "Source": "Grid forecast"
+  },
+  {
+    "Time": "2026-04-02 03:45:00+0200",
+    "Energy (kWh)": 0,
+    "Cost (EUR/kWh)": 0,
+    "Source": "PV forecast"
+  },
+  {
+    "Time": "2026-04-02 03:45:00+0200",
+    "Energy (kWh)": 37.25,
+    "Cost (EUR/kWh)": 0.1075416030883789,
+    "Source": "Grid forecast"
+  }
+]

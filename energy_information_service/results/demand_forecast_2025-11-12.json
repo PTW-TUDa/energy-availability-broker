@@ -1,0 +1,1117 @@
+[
+  {
+    "Time": "2025-11-12T01:00:00+01:00",
+    "Energy (kWh)": 1.817228,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T01:15:00+01:00",
+    "Energy (kWh)": 1.817228,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T01:30:00+01:00",
+    "Energy (kWh)": 1.817228,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T01:45:00+01:00",
+    "Energy (kWh)": 1.817228,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T02:00:00+01:00",
+    "Energy (kWh)": 1.690959,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T02:15:00+01:00",
+    "Energy (kWh)": 1.690959,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T02:30:00+01:00",
+    "Energy (kWh)": 1.690959,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T02:45:00+01:00",
+    "Energy (kWh)": 1.690959,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T03:00:00+01:00",
+    "Energy (kWh)": 1.815024,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T03:15:00+01:00",
+    "Energy (kWh)": 1.815024,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T03:30:00+01:00",
+    "Energy (kWh)": 1.815024,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T03:45:00+01:00",
+    "Energy (kWh)": 1.815024,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T04:00:00+01:00",
+    "Energy (kWh)": 1.797326,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T04:15:00+01:00",
+    "Energy (kWh)": 1.797326,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T04:30:00+01:00",
+    "Energy (kWh)": 1.797326,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T04:45:00+01:00",
+    "Energy (kWh)": 1.797326,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T05:00:00+01:00",
+    "Energy (kWh)": 1.978985,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T05:15:00+01:00",
+    "Energy (kWh)": 1.978985,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T05:30:00+01:00",
+    "Energy (kWh)": 1.978985,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T05:45:00+01:00",
+    "Energy (kWh)": 1.978985,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T06:00:00+01:00",
+    "Energy (kWh)": 2.642573,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T06:15:00+01:00",
+    "Energy (kWh)": 2.642573,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T06:30:00+01:00",
+    "Energy (kWh)": 2.642573,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T06:45:00+01:00",
+    "Energy (kWh)": 2.642573,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T07:00:00+01:00",
+    "Energy (kWh)": 2.632495,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T07:15:00+01:00",
+    "Energy (kWh)": 2.632495,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T07:30:00+01:00",
+    "Energy (kWh)": 2.632495,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T07:45:00+01:00",
+    "Energy (kWh)": 2.632495,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T08:00:00+01:00",
+    "Energy (kWh)": 2.831174,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T08:15:00+01:00",
+    "Energy (kWh)": 2.831174,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T08:30:00+01:00",
+    "Energy (kWh)": 2.831174,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T08:45:00+01:00",
+    "Energy (kWh)": 2.831174,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T09:00:00+01:00",
+    "Energy (kWh)": 3.012287,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T09:15:00+01:00",
+    "Energy (kWh)": 3.012287,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T09:30:00+01:00",
+    "Energy (kWh)": 3.012287,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T09:45:00+01:00",
+    "Energy (kWh)": 3.012287,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T10:00:00+01:00",
+    "Energy (kWh)": 3.586764,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T10:15:00+01:00",
+    "Energy (kWh)": 3.586764,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T10:30:00+01:00",
+    "Energy (kWh)": 3.586764,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T10:45:00+01:00",
+    "Energy (kWh)": 3.586764,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T11:00:00+01:00",
+    "Energy (kWh)": 3.779817,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T11:15:00+01:00",
+    "Energy (kWh)": 3.779817,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T11:30:00+01:00",
+    "Energy (kWh)": 3.779817,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T11:45:00+01:00",
+    "Energy (kWh)": 3.779817,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T12:00:00+01:00",
+    "Energy (kWh)": 3.568509,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T12:15:00+01:00",
+    "Energy (kWh)": 3.568509,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T12:30:00+01:00",
+    "Energy (kWh)": 3.568509,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T12:45:00+01:00",
+    "Energy (kWh)": 3.568509,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T13:00:00+01:00",
+    "Energy (kWh)": 3.153109,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T13:15:00+01:00",
+    "Energy (kWh)": 3.153109,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T13:30:00+01:00",
+    "Energy (kWh)": 3.153109,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T13:45:00+01:00",
+    "Energy (kWh)": 3.153109,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T14:00:00+01:00",
+    "Energy (kWh)": 2.829432,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T14:15:00+01:00",
+    "Energy (kWh)": 2.829432,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T14:30:00+01:00",
+    "Energy (kWh)": 2.829432,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T14:45:00+01:00",
+    "Energy (kWh)": 2.829432,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T15:00:00+01:00",
+    "Energy (kWh)": 2.5019,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T15:15:00+01:00",
+    "Energy (kWh)": 2.5019,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T15:30:00+01:00",
+    "Energy (kWh)": 2.5019,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T15:45:00+01:00",
+    "Energy (kWh)": 2.5019,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T16:00:00+01:00",
+    "Energy (kWh)": 2.307348,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T16:15:00+01:00",
+    "Energy (kWh)": 2.307348,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T16:30:00+01:00",
+    "Energy (kWh)": 2.307348,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T16:45:00+01:00",
+    "Energy (kWh)": 2.307348,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T17:00:00+01:00",
+    "Energy (kWh)": 2.217404,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T17:15:00+01:00",
+    "Energy (kWh)": 2.217404,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T17:30:00+01:00",
+    "Energy (kWh)": 2.217404,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T17:45:00+01:00",
+    "Energy (kWh)": 2.217404,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T18:00:00+01:00",
+    "Energy (kWh)": 2.121849,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T18:15:00+01:00",
+    "Energy (kWh)": 2.121849,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T18:30:00+01:00",
+    "Energy (kWh)": 2.121849,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T18:45:00+01:00",
+    "Energy (kWh)": 2.121849,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T19:00:00+01:00",
+    "Energy (kWh)": 2.09721,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T19:15:00+01:00",
+    "Energy (kWh)": 2.09721,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T19:30:00+01:00",
+    "Energy (kWh)": 2.09721,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T19:45:00+01:00",
+    "Energy (kWh)": 2.09721,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T20:00:00+01:00",
+    "Energy (kWh)": 2.024887,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T20:15:00+01:00",
+    "Energy (kWh)": 2.024887,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T20:30:00+01:00",
+    "Energy (kWh)": 2.024887,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T20:45:00+01:00",
+    "Energy (kWh)": 2.024887,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T21:00:00+01:00",
+    "Energy (kWh)": 1.766542,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T21:15:00+01:00",
+    "Energy (kWh)": 1.766542,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T21:30:00+01:00",
+    "Energy (kWh)": 1.766542,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T21:45:00+01:00",
+    "Energy (kWh)": 1.766542,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T22:00:00+01:00",
+    "Energy (kWh)": 1.732391,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T22:15:00+01:00",
+    "Energy (kWh)": 1.732391,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T22:30:00+01:00",
+    "Energy (kWh)": 1.732391,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T22:45:00+01:00",
+    "Energy (kWh)": 1.732391,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T23:00:00+01:00",
+    "Energy (kWh)": 1.743099,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T23:15:00+01:00",
+    "Energy (kWh)": 1.743099,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T23:30:00+01:00",
+    "Energy (kWh)": 1.743099,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-12T23:45:00+01:00",
+    "Energy (kWh)": 1.743099,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T00:00:00+01:00",
+    "Energy (kWh)": 1.569198,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T00:15:00+01:00",
+    "Energy (kWh)": 1.569198,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T00:30:00+01:00",
+    "Energy (kWh)": 1.569198,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T00:45:00+01:00",
+    "Energy (kWh)": 1.569198,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T01:00:00+01:00",
+    "Energy (kWh)": 1.62137,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T01:15:00+01:00",
+    "Energy (kWh)": 1.62137,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T01:30:00+01:00",
+    "Energy (kWh)": 1.62137,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T01:45:00+01:00",
+    "Energy (kWh)": 1.62137,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T02:00:00+01:00",
+    "Energy (kWh)": 1.451938,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T02:15:00+01:00",
+    "Energy (kWh)": 1.451938,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T02:30:00+01:00",
+    "Energy (kWh)": 1.451938,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T02:45:00+01:00",
+    "Energy (kWh)": 1.451938,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T03:00:00+01:00",
+    "Energy (kWh)": 1.244796,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T03:15:00+01:00",
+    "Energy (kWh)": 1.244796,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T03:30:00+01:00",
+    "Energy (kWh)": 1.244796,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T03:45:00+01:00",
+    "Energy (kWh)": 1.244796,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T04:00:00+01:00",
+    "Energy (kWh)": 1.306395,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T04:15:00+01:00",
+    "Energy (kWh)": 1.306395,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T04:30:00+01:00",
+    "Energy (kWh)": 1.306395,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T04:45:00+01:00",
+    "Energy (kWh)": 1.306395,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T05:00:00+01:00",
+    "Energy (kWh)": 1.993405,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T05:15:00+01:00",
+    "Energy (kWh)": 1.993405,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T05:30:00+01:00",
+    "Energy (kWh)": 1.993405,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T05:45:00+01:00",
+    "Energy (kWh)": 1.993405,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T06:00:00+01:00",
+    "Energy (kWh)": 1.997882,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T06:15:00+01:00",
+    "Energy (kWh)": 1.997882,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T06:30:00+01:00",
+    "Energy (kWh)": 1.997882,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T06:45:00+01:00",
+    "Energy (kWh)": 1.997882,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T07:00:00+01:00",
+    "Energy (kWh)": 1.980785,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T07:15:00+01:00",
+    "Energy (kWh)": 1.980785,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T07:30:00+01:00",
+    "Energy (kWh)": 1.980785,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T07:45:00+01:00",
+    "Energy (kWh)": 1.980785,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T08:00:00+01:00",
+    "Energy (kWh)": 0,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T08:00:00+01:00",
+    "Energy (kWh)": 2.339346,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T08:15:00+01:00",
+    "Energy (kWh)": 0,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T08:15:00+01:00",
+    "Energy (kWh)": 2.339346,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T08:30:00+01:00",
+    "Energy (kWh)": 0,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T08:30:00+01:00",
+    "Energy (kWh)": 2.339346,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T08:45:00+01:00",
+    "Energy (kWh)": 0.036667,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T08:45:00+01:00",
+    "Energy (kWh)": 2.339346,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T09:00:00+01:00",
+    "Energy (kWh)": 0.518283,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T09:00:00+01:00",
+    "Energy (kWh)": 2.532212,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T09:15:00+01:00",
+    "Energy (kWh)": 0.437833,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T09:15:00+01:00",
+    "Energy (kWh)": 2.532212,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T09:30:00+01:00",
+    "Energy (kWh)": 0.1365,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T09:30:00+01:00",
+    "Energy (kWh)": 2.532212,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T09:45:00+01:00",
+    "Energy (kWh)": 0.171967,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T09:45:00+01:00",
+    "Energy (kWh)": 2.532212,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T10:00:00+01:00",
+    "Energy (kWh)": 0.2949,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T10:00:00+01:00",
+    "Energy (kWh)": 2.698804,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T10:15:00+01:00",
+    "Energy (kWh)": 0.483667,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T10:15:00+01:00",
+    "Energy (kWh)": 2.698804,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T10:30:00+01:00",
+    "Energy (kWh)": 0.481617,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T10:30:00+01:00",
+    "Energy (kWh)": 2.698804,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T10:45:00+01:00",
+    "Energy (kWh)": 0.1274,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T10:45:00+01:00",
+    "Energy (kWh)": 2.698804,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T11:00:00+01:00",
+    "Energy (kWh)": 0.54655,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T11:00:00+01:00",
+    "Energy (kWh)": 2.387063,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T11:15:00+01:00",
+    "Energy (kWh)": 0.336533,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T11:15:00+01:00",
+    "Energy (kWh)": 2.387063,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T11:30:00+01:00",
+    "Energy (kWh)": 0.388817,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T11:30:00+01:00",
+    "Energy (kWh)": 2.387063,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T11:45:00+01:00",
+    "Energy (kWh)": 0.211117,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T11:45:00+01:00",
+    "Energy (kWh)": 2.387063,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T12:00:00+01:00",
+    "Energy (kWh)": 1.3551,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T12:00:00+01:00",
+    "Energy (kWh)": 2.348384,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T12:15:00+01:00",
+    "Energy (kWh)": 1.1765,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T12:15:00+01:00",
+    "Energy (kWh)": 2.348384,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T12:30:00+01:00",
+    "Energy (kWh)": 1.26275,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T12:30:00+01:00",
+    "Energy (kWh)": 2.348384,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T12:45:00+01:00",
+    "Energy (kWh)": 1.26275,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T12:45:00+01:00",
+    "Energy (kWh)": 2.348384,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T13:00:00+01:00",
+    "Energy (kWh)": 1.246367,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T13:00:00+01:00",
+    "Energy (kWh)": 2.687517,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T13:15:00+01:00",
+    "Energy (kWh)": 0.875,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T13:15:00+01:00",
+    "Energy (kWh)": 2.687517,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T13:30:00+01:00",
+    "Energy (kWh)": 1.545183,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T13:30:00+01:00",
+    "Energy (kWh)": 2.687517,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T13:45:00+01:00",
+    "Energy (kWh)": 3.024633,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T13:45:00+01:00",
+    "Energy (kWh)": 2.687517,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T14:00:00+01:00",
+    "Energy (kWh)": 0.3821,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T14:00:00+01:00",
+    "Energy (kWh)": 2.287615,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T14:15:00+01:00",
+    "Energy (kWh)": 0.3619,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T14:15:00+01:00",
+    "Energy (kWh)": 2.287615,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T14:30:00+01:00",
+    "Energy (kWh)": 0.38775,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T14:30:00+01:00",
+    "Energy (kWh)": 2.287615,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T14:45:00+01:00",
+    "Energy (kWh)": 0.412217,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T14:45:00+01:00",
+    "Energy (kWh)": 2.287615,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T15:00:00+01:00",
+    "Energy (kWh)": 0.194367,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T15:00:00+01:00",
+    "Energy (kWh)": 2.198058,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T15:15:00+01:00",
+    "Energy (kWh)": 1.750367,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T15:15:00+01:00",
+    "Energy (kWh)": 2.198058,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T15:30:00+01:00",
+    "Energy (kWh)": 1.51585,
+    "Source": "production"
+  },
+  {
+    "Time": "2025-11-13T15:30:00+01:00",
+    "Energy (kWh)": 2.198058,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T15:45:00+01:00",
+    "Energy (kWh)": 2.198058,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T16:00:00+01:00",
+    "Energy (kWh)": 2.034799,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T16:15:00+01:00",
+    "Energy (kWh)": 2.034799,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T16:30:00+01:00",
+    "Energy (kWh)": 2.034799,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T16:45:00+01:00",
+    "Energy (kWh)": 2.034799,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T17:00:00+01:00",
+    "Energy (kWh)": 2.093246,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T17:15:00+01:00",
+    "Energy (kWh)": 2.093246,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T17:30:00+01:00",
+    "Energy (kWh)": 2.093246,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T17:45:00+01:00",
+    "Energy (kWh)": 2.093246,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T18:00:00+01:00",
+    "Energy (kWh)": 1.825216,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T18:15:00+01:00",
+    "Energy (kWh)": 1.825216,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T18:30:00+01:00",
+    "Energy (kWh)": 1.825216,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T18:45:00+01:00",
+    "Energy (kWh)": 1.825216,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T19:00:00+01:00",
+    "Energy (kWh)": 1.697254,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T19:15:00+01:00",
+    "Energy (kWh)": 1.697254,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T19:30:00+01:00",
+    "Energy (kWh)": 1.697254,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T19:45:00+01:00",
+    "Energy (kWh)": 1.697254,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T20:00:00+01:00",
+    "Energy (kWh)": 1.604696,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T20:15:00+01:00",
+    "Energy (kWh)": 1.604696,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T20:30:00+01:00",
+    "Energy (kWh)": 1.604696,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T20:45:00+01:00",
+    "Energy (kWh)": 1.604696,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T21:00:00+01:00",
+    "Energy (kWh)": 1.628954,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T21:15:00+01:00",
+    "Energy (kWh)": 1.628954,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T21:30:00+01:00",
+    "Energy (kWh)": 1.628954,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T21:45:00+01:00",
+    "Energy (kWh)": 1.628954,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T22:00:00+01:00",
+    "Energy (kWh)": 1.757107,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T22:15:00+01:00",
+    "Energy (kWh)": 1.757107,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T22:30:00+01:00",
+    "Energy (kWh)": 1.757107,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T22:45:00+01:00",
+    "Energy (kWh)": 1.757107,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T23:00:00+01:00",
+    "Energy (kWh)": 1.630511,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T23:15:00+01:00",
+    "Energy (kWh)": 1.630511,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T23:30:00+01:00",
+    "Energy (kWh)": 1.630511,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-13T23:45:00+01:00",
+    "Energy (kWh)": 1.630511,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-14T00:00:00+01:00",
+    "Energy (kWh)": 1.689901,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-14T00:15:00+01:00",
+    "Energy (kWh)": 1.689901,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-14T00:30:00+01:00",
+    "Energy (kWh)": 1.689901,
+    "Source": "site"
+  },
+  {
+    "Time": "2025-11-14T00:45:00+01:00",
+    "Energy (kWh)": 1.689901,
+    "Source": "site"
+  }
+]

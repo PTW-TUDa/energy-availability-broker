@@ -27,22 +27,20 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.11.0,<3.12"
-numpy = ">=1.23.2"
+numpy = ">=2.0.0,<3.0.0"
 fastapi = {extras = ["standard"], version="^0.115.8"}
 anyio = "^4.8.0"
 apscheduler = "4.0.0a5"
 pandas = "^2.2"
 xgboost = "^3.0"
 joblib = "^1.4"
-entsoe-py = "^0.6"
 openmeteo-requests = "^1.6"
 retry-requests = "^2.0"
 requests-cache = "^1.2"
-eta-nexus = "0.1.0"
+eta-nexus = {git="https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-nexus.git", rev="ae8427cdda238a3154bd6c8e297098cdc074fc8b"}
 marshmallow = "<4.0.0"
 py-base-types = {path = "vendor/wheels/py_base_types-4.1.3-py3-none-any.whl"}
 etaone-py-sdk = {path = "vendor/wheels/etaone_py_sdk-4.1.8-cp311-cp311-win_amd64.whl"}
-pint = ">=0.25.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -50,6 +48,16 @@ pre-commit = "^3.5.0"
 ruff = "^0.4.10"
 pytest = "^8.3.4"
 pytest-mock = "^3.14.0"
+
+[tool.poetry.group.notebook.dependencies]
+requests = "^2.31"
+pandas = "^2.2"
+matplotlib = "^3.8"
+notebook = "^7.0"
+python-dotenv = "^1.0"
+numpy = "^2.0"
+seaborn = "^0.13"
+scipy = "^1.11"
 
 [tool.poetry.scripts]
 retrain_model = "energy_information_service.retrain:main"

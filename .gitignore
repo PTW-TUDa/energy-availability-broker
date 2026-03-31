@@ -104,6 +104,10 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+.precommit-cache/*
+notebooks/outputs/*
+notebooks/figs/*
+
 # Environments
 .env*
 .venv

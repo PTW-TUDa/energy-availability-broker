@@ -20,21 +20,22 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import logging
-import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
 import anyio
 import joblib
 import pandas as pd
-from entsoe import EntsoePandasClient
 from eta_nexus.connections import EntsoeConnection
 from eta_nexus.nodes import EntsoeNode
 
-from .dayahead_forecast_utils import (
+from energy_information_service.config import SERVICE_CONFIG
+from energy_information_service.dayahead_forecast_utils import (
+    _fetch_entsoe_prices,
     build_feature_history,
     predict_future_prices,
 )
+from energy_information_service.env_utils import load_service_env
 
 log = logging.getLogger(__name__)
 
@@ -63,6 +64,10 @@ class DamForecastProvider:
     VALIDATE_INTERVAL_MIN = 15  # how often to compare with latest ENTSOE data
     REFRESH_INTERVAL_H = 6  # hours after which the cache is refreshed
 
+    @staticmethod
+    def _prediction_horizon() -> timedelta:
+        return timedelta(hours=SERVICE_CONFIG.prediction_horizon_hours)
+
     def __init__(self):
         self._lock = anyio.Lock()
 
@@ -70,8 +75,6 @@ class DamForecastProvider:
         self._model_path = self._select_latest_model()
         self._model = joblib.load(self._model_path)
         log.info("Loaded DAM model from %s", self._model_path)
-
-        self._entsoe = EntsoePandasClient(api_key=os.getenv("ENTSOE_API_TOKEN", ""))
 
         self.entsoe_node = EntsoeNode(
             name="entsoe_node",
@@ -148,16 +151,17 @@ class DamForecastProvider:
         log.info("Building / refreshing DAM forecast …")
 
         if self._feature_history_df is None:
-            self._feature_history_df = build_feature_history(self._entsoe, earliest="2022-01-01")
+            self._feature_history_df = build_feature_history(entsoe=self.entsoe_connection, earliest="2026-01-01")
 
+        horizon = timedelta(hours=SERVICE_CONFIG.prediction_horizon_hours)
         start_date = datetime.now(tz=pd.Timestamp.now().tz).strftime("%Y-%m-%d")
-        end_date = (datetime.now(tz=pd.Timestamp.now().tz) + timedelta(days=5)).strftime("%Y-%m-%d")
+        end_date = (datetime.now(tz=pd.Timestamp.now().tz) + horizon).strftime("%Y-%m-%d")
 
         df_pred = predict_future_prices(
             reg=self._model,
             start_date=start_date,
             end_date=end_date,
-            entsoe_client=self._entsoe,
+            entsoe=self.entsoe_connection,
             df_history=self._feature_history_df,
         )
 
@@ -172,32 +176,13 @@ class DamForecastProvider:
 
         today = pd.Timestamp.now("Europe/Berlin").normalize()
         day_after_tomorrow = today + timedelta(days=2)
-        self.entsoe_reference_df = self._fetch_entsoe_prices(today, day_after_tomorrow)
+        self.entsoe_reference_df = _fetch_entsoe_prices(self.entsoe_connection, today, day_after_tomorrow)
 
         log.info(
-            "Forecast cache refreshed: %s rows (5-day) | reference updated: %s rows (48 h)",
+            "Forecast cache refreshed: %s rows | reference updated: %s rows",
             len(price_forecast_15min),
             len(self.entsoe_reference_df),
         )
-
-    def _fetch_entsoe_prices(self, from_time, to_time) -> pd.DataFrame:
-        """Returns a DataFrame [Time, Grid Price 1h (EUR/MWh)] from the hourly ENTSOE Day-Ahead Market prices
-        for the given time frame. The DataFrame is indexed by Time and sorted in ascending order."""
-        interval = timedelta(minutes=15)
-
-        day_ahead_prices = self.entsoe_connection.read_series(from_time, to_time, self.entsoe_node, interval)
-
-        day_ahead_prices = day_ahead_prices.reset_index()
-
-        if day_ahead_prices.shape[1] == 2:
-            day_ahead_prices.columns = ["Time", "Grid Price 1h (EUR/MWh)"]
-            day_ahead_prices["Time"] = pd.to_datetime(day_ahead_prices["Time"])
-        else:
-            day_ahead_prices.columns = ["Time", "Grid Price 0.25h (EUR/MWh)", "Grid Price 1h (EUR/MWh)"]
-            day_ahead_prices["Time"] = pd.to_datetime(day_ahead_prices["Time"])
-            day_ahead_prices = day_ahead_prices.drop(columns=["Grid Price 0.25h (EUR/MWh)"])
-
-        return day_ahead_prices.set_index("Time").sort_index().dropna()
 
     def _entsoe_checksum(self, entsoe_df: pd.DataFrame) -> str:
         """Return SHA-256 of ENTSOE Grid Price column for quick equality check."""
@@ -217,7 +202,9 @@ class DamForecastProvider:
                 today = pd.Timestamp.now("Europe/Berlin").normalize()
                 day_after_tomorrow = today + timedelta(days=2)
 
-                latest_entsoe = await anyio.to_thread.run_sync(self._fetch_entsoe_prices, today, day_after_tomorrow)
+                latest_entsoe = await anyio.to_thread.run_sync(
+                    _fetch_entsoe_prices, self.entsoe_connection, today, day_after_tomorrow
+                )
 
                 cached_hash = self._entsoe_checksum(self.entsoe_reference_df)
                 live_hash = self._entsoe_checksum(latest_entsoe)
@@ -264,7 +251,7 @@ class DamForecastProvider:
 
     async def get_forecast(self) -> list[dict]:
         """
-        Return a 5-day, 15-minute forecast window that **always begins at the
+        Return a configured-horizon, 15-minute forecast window that **always begins at the
         current quarter-hour**.
 
         * If the cached data are older than `REFRESH_INTERVAL_H` hours, or the
@@ -286,9 +273,9 @@ class DamForecastProvider:
             if cache_stale:
                 await anyio.to_thread.run_sync(self._refresh_forecast)
 
-            # 2) Slice the cached DataFrame to the *current* 5-day window
+            # 2) Slice the cached DataFrame to the configured default window
             window_start = tz_now.floor("15min")
-            window_end = window_start + timedelta(days=5)
+            window_end = window_start + self._prediction_horizon()
 
             # If the requested end extends beyond the cached horizon, refresh
             if window_end > self._dam_price_forecast_df.index.max():
@@ -309,7 +296,7 @@ class DamForecastProvider:
         to_time: datetime | None = None,
     ) -> list[dict]:
         """
-        Slice the cached 5-day, 15-minute DAM price forecast by time only.
+        Slice the cached 15-minute DAM price forecast by time only.
         When the requested window extends the cached horizon (to_time),
         trigger a refresh to extend the cache.
         Result is a list of dicts with 'Time' as ISO string and 'Cost (EUR/MWh)'.
@@ -327,11 +314,11 @@ class DamForecastProvider:
 
             df_dam_price = self._dam_price_forecast_df
 
-            # Default to full cached horizon if bounds are omitted
+            # Default to the configured forward horizon if bounds are omitted
             if from_time is None:
-                from_time = df_dam_price.index.min().to_pydatetime()
+                from_time = pd.Timestamp.now(tz="Europe/Berlin").floor("15min").to_pydatetime()
             if to_time is None:
-                to_time = df_dam_price.index.max().to_pydatetime()
+                to_time = (pd.Timestamp(from_time) + self._prediction_horizon()).to_pydatetime()
 
             # If the requested window extends beyond the cached horizon, refresh
             if to_time > df_dam_price.index.max().to_pydatetime():
@@ -346,3 +333,15 @@ class DamForecastProvider:
                 .assign(Time=lambda d: d["Time"].dt.strftime("%Y-%m-%d %H:%M:%S%z"))
                 .to_dict(orient="records")
             )
+
+
+if __name__ == "__main__":
+    load_service_env(override=True)  # ensure .env is loaded for this test run
+    # Quick test: run the provider and print the next 5-day forecast window
+    provider = DamForecastProvider()
+    dayahead_prices = _fetch_entsoe_prices(
+        provider.entsoe_connection,
+        from_time=pd.Timestamp.now("Europe/Berlin").normalize(),
+        to_time=pd.Timestamp.now("Europe/Berlin").normalize() + timedelta(days=2),
+    )
+    forecast = provider._refresh_forecast()

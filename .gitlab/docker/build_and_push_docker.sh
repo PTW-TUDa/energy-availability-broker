@@ -9,7 +9,7 @@ PYTHON_VERSIONS=("3.11")
 POETRY_VERSION="2.3.2"
 DOCKERFILE_PATH=".gitlab/docker/Dockerfile"
 REGISTRY_URL="git-reg.ptw.maschinenbau.tu-darmstadt.de"
-IMAGE_PATH="eta-fabrik/projekte/energy-information-service"
+IMAGE_PATH="eta-fabrik/projekte/energy-availability-broker"
 
 docker login ${REGISTRY_URL}
 if [ $? -ne 0 ]; then

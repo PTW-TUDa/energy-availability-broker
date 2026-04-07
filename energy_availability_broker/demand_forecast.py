@@ -9,7 +9,7 @@ import anyio
 import pandas as pd
 from pydantic import BaseModel, Field
 
-from energy_information_service.config import SERVICE_CONFIG
+from energy_availability_broker.config import SERVICE_CONFIG
 
 log = logging.getLogger(__name__)
 

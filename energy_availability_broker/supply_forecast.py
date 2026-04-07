@@ -9,9 +9,9 @@ import pandas as pd
 from eta_nexus.connections import EntsoeConnection, ForecastsolarConnection
 from eta_nexus.nodes import EntsoeNode, ForecastsolarNode
 
-from energy_information_service.config import SERVICE_CONFIG
-from energy_information_service.dayahead_forecast import DamForecastProvider
-from energy_information_service.forecastsolar_utils import forecastsolar_to_energy_frame
+from energy_availability_broker.config import SERVICE_CONFIG
+from energy_availability_broker.dayahead_forecast import DamForecastProvider
+from energy_availability_broker.forecastsolar_utils import forecastsolar_to_energy_frame
 
 log = logging.getLogger(__name__)
 

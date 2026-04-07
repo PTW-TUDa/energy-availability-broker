@@ -19,7 +19,7 @@ import pandas as pd
 import xgboost as xgb
 from entsoe import EntsoePandasClient
 
-from energy_information_service.dayahead_forecast_utils import (  # (project import)
+from energy_availability_broker.dayahead_forecast_utils import (  # (project import)
     create_features,
     get_combined_data,
 )

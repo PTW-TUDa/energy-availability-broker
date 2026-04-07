@@ -25,7 +25,7 @@ $PYTHON_VERSIONS = @("3.11")
 $POETRY_VERSION = "2.3.2"
 $DOCKERFILE_PATH = ".gitlab/docker/Dockerfile"
 $REGISTRY_URL = "git-reg.ptw.maschinenbau.tu-darmstadt.de"
-$IMAGE_PATH = "eta-fabrik/projekte/energy-information-service"
+$IMAGE_PATH = "eta-fabrik/projekte/energy-availability-broker"
 
 if (-not $env:DEPLOY_TOKEN) {
     Write-Host "ERROR: DEPLOY_TOKEN is not set. Please check your .env file."

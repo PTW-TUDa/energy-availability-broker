@@ -1,6 +1,6 @@
-# Energy Information Service
+# Energy Availability Broker
 
-Implements the **Energy Information Service** for the ETA Factory.
+Implements the **Energy Availability Broker** for the ETA Factory.
 It exposes a FastAPI application that serves Day-Ahead prices, extended by machine-learning based forecasts (e.g., a Day-Ahead-Market price forecast) and related utilities.
 
 
@@ -24,7 +24,7 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 
 ## Features
 
-- **FastAPI** service (`energy_information_service/main.py`).
+- **FastAPI** service (`energy_availability_broker/main.py`).
 - **5-day Day-Ahead-Market (DAM) price forecast** at 15-minute resolution powered by an XGBoost model (`models/xgb_daily_model.pkl`).
 - Forecast/data utilities in `forecast.py`, `forecast_utils.py`, `supply_forecast.py`, `services.py`.
 - Ready-to-use **Dockerfile** and GitLab CI scripts in `.gitlab/docker/`.
@@ -35,7 +35,7 @@ It exposes a FastAPI application that serves Day-Ahead prices, extended by machi
 
 ```
 .
-├─ energy_information_service/
+├─ energy_availability_broker/
 │  ├─ main.py                     # FastAPI application entrypoint
 │  ├─ dayahead_forecast.py        # Day Ahead Price forecast provider class
 │  ├─ dayahead_forecast_utils.py  # Day Ahead Price forecast feature engineering and data assembly
@@ -126,13 +126,13 @@ poetry run fastapi_dev
 
 To change the port:
 ```bash
-poetry run fastapi dev ./energy_information_service/main.py --port 8010
+poetry run fastapi dev ./energy_availability_broker/main.py --port 8010
 ```
 
 ### Normal run
 
 ```bash
-poetry run fastapi run ./energy_information_service/main.py
+poetry run fastapi run ./energy_availability_broker/main.py
 ```
 
 ### Docker
@@ -146,7 +146,7 @@ docker build -f .gitlab/docker/Dockerfile -t energy_info_service_image:local .
 # Run — make sure secret.py is available inside the container.
 # If the container's app workdir is /app, mount your local secret.py into it:
 docker run --rm -p 8000:8000 \
-  -v "$(pwd)/energy_information_service/secret.py:/app/energy_information_service/secret.py:ro" \
+  -v "$(pwd)/energy_availability_broker/secret.py:/app/energy_availability_broker/secret.py:ro" \
   energy_info_service_image:local
 ```
 
@@ -168,7 +168,7 @@ These pages list all available endpoints exposed by `main.py` (for example, a `G
 
 ## Retraining the Price Model
 
-The repository includes a CLI to (re)train the XGBoost model with fresh data and save it under `energy_information_service/models/`.
+The repository includes a CLI to (re)train the XGBoost model with fresh data and save it under `energy_availability_broker/models/`.
 
 Run:
 
@@ -179,7 +179,7 @@ poetry run retrain_model
 
 Notes:
 
-- Requires valid tokens in `energy_information_service/secret.py`.
+- Requires valid tokens in `energy_availability_broker/secret.py`.
 - By default it pulls historical data, engineers features, trains, and writes the model (e.g., `xgb_daily_model.pkl`).
 - CSV artifacts such as `combined_data.csv` may be generated or updated.
 

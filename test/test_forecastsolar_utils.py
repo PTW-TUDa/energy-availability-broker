@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 import pandas as pd
 
-from energy_information_service.forecastsolar_utils import forecastsolar_to_energy_frame
+from energy_availability_broker.forecastsolar_utils import forecastsolar_to_energy_frame
 
 
 def test_forecastsolar_to_energy_frame_supports_single_power_column():

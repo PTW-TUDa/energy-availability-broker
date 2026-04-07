@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pandas as pd
 
-from energy_information_service.non_production_forecast_utils import (
+from energy_availability_broker.non_production_forecast_utils import (
     build_electrical_power_features_for_inference,
     filter_non_production_forecast_window,
     resample_non_production_power_to_quarter_hour_energy,
@@ -65,7 +65,7 @@ def test_resolve_issue_time_local_uses_from_time_when_issue_time_missing():
 
 def test_resolve_issue_time_local_clamps_future_from_time_to_now(mocker):
     mock_now = pd.Timestamp("2025-11-17T08:15:00+01:00")
-    mocker.patch("energy_information_service.non_production_forecast_utils.pd.Timestamp.now", return_value=mock_now)
+    mocker.patch("energy_availability_broker.non_production_forecast_utils.pd.Timestamp.now", return_value=mock_now)
 
     resolved = resolve_issue_time_local(from_time="2025-11-17T12:00:00+01:00", tz_local="Europe/Berlin")
 

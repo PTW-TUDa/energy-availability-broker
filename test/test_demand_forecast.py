@@ -7,8 +7,8 @@ from fastapi.testclient import TestClient
 
 os.environ.setdefault("FORECAST_SOLAR_API_TOKEN", "A1B2C3D4E5F6G7H8")
 
-from energy_information_service import main  # noqa: E402
-from energy_information_service.demand_forecast import DemandForecast, DemandForecastModel, DemandPoint  # noqa: E402
+from energy_availability_broker import main
+from energy_availability_broker.demand_forecast import DemandForecast, DemandForecastModel, DemandPoint
 
 
 def _make_payload(start: datetime, values: list[float], source: str = "site") -> dict:
@@ -92,8 +92,8 @@ def test_get_endpoint_returns_merged_non_production_and_production(monkeypatch):
         ],
     )
     main.app.dependency_overrides[main.get_production_demand_forecast] = lambda: production_payload
-    main.app.dependency_overrides[main.get_non_production_forecast_provider] = (
-        lambda: StubNonProductionForecastProvider(site_payload)
+    main.app.dependency_overrides[main.get_non_production_forecast_provider] = lambda: (
+        StubNonProductionForecastProvider(site_payload)
     )
 
     client = TestClient(main.app)
@@ -128,8 +128,8 @@ def test_get_endpoint_source_filter_still_returns_raw_non_production_data(monkey
         source="production",
         values=[DemandPoint(time=datetime(2025, 8, 27, 8, 0, tzinfo=UTC), energy_kwh=5.0)],
     )
-    main.app.dependency_overrides[main.get_non_production_forecast_provider] = (
-        lambda: StubNonProductionForecastProvider(
+    main.app.dependency_overrides[main.get_non_production_forecast_provider] = lambda: (
+        StubNonProductionForecastProvider(
             DemandForecastModel(
                 source="site",
                 values=[

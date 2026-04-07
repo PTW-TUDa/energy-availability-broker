@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from energy_information_service.dayahead_forecast_utils import (
+from energy_availability_broker.dayahead_forecast_utils import (
     PRICE_COLUMN,
     _normalize_price_frame,
     fetch_entsoe_day_ahead_prices,

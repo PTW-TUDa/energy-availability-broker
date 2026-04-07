@@ -41,7 +41,7 @@ default:
   image: "${REGISTRY_IMAGE}:py3.11"
   before_script:
     - python --version
-    - rm -rf dist doc energy_information_service.egg-info build
+    - rm -rf dist doc energy_availability_broker.egg-info build
     - rm -rf docs/_build docs/_stubs
     - ls -la
     # Install development dependencies

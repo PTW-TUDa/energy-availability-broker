@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-from energy_information_service.demand_forecast import DemandForecast, DemandForecastModel, DemandPoint
+from energy_availability_broker.demand_forecast import DemandForecast, DemandForecastModel, DemandPoint
 
 DEFAULT_FLMP_PATH = Path(__file__).parent / "data" / "TimeReconstructedOptimizedEfdmFlmp_2025-11-13.json"
 QUARTER_HOUR = timedelta(minutes=15)

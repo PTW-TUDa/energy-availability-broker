@@ -5,10 +5,10 @@ from enum import Enum
 
 import pandas as pd
 
-from energy_information_service.demand_forecast import DemandForecast, DemandForecastModel
-from energy_information_service.energy_availability import EnergyAvailabilityProvider
-from energy_information_service.non_production_forecast import NonProductionPowerForecastProvider
-from energy_information_service.supply_forecast import SupplyForecastProvider
+from energy_availability_broker.demand_forecast import DemandForecast, DemandForecastModel
+from energy_availability_broker.energy_availability import EnergyAvailabilityProvider
+from energy_availability_broker.non_production_forecast import NonProductionPowerForecastProvider
+from energy_availability_broker.supply_forecast import SupplyForecastProvider
 
 
 class EnergyBrokerProvider:

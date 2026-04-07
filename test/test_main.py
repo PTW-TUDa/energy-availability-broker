@@ -1,5 +1,5 @@
 # test/test_main.py
-# Tests for energy_information_service.main with sample data blocks.
+# Tests for energy_availability_broker.main with sample data blocks.
 
 from __future__ import annotations
 
@@ -11,8 +11,8 @@ from unittest.mock import AsyncMock
 import pytest
 from fastapi.testclient import TestClient
 
-import energy_information_service.main as api_main
-from energy_information_service.main import (
+import energy_availability_broker.main as api_main
+from energy_availability_broker.main import (
     app,
     get_data_provider,
     get_demand_forecast_provider,
@@ -133,7 +133,7 @@ class DummyAsyncScheduler:
 
 
 # Fixtures
-@pytest.fixture()
+@pytest.fixture
 def data_provider_mock():
     m = AsyncMock(name="EnergyAvailabilityProviderMock")
 
@@ -214,7 +214,7 @@ def data_provider_mock():
     return m
 
 
-@pytest.fixture()
+@pytest.fixture
 def dam_forecast_provider_mock():
     m = AsyncMock(name="DamForecastProviderMock")
     # ensure methods used by main.py are available
@@ -223,7 +223,7 @@ def dam_forecast_provider_mock():
     return m
 
 
-@pytest.fixture()
+@pytest.fixture
 def supply_forecast_provider_mock():
     m = AsyncMock(name="SupplyForecastProviderMock")
     m.get_supply_forecast.return_value = SUPPLY_FORECAST_ROWS
@@ -243,7 +243,7 @@ def supply_forecast_provider_mock():
     return m
 
 
-@pytest.fixture()
+@pytest.fixture
 def demand_forecast_provider_mock():
     m = AsyncMock(name="DemandForecastProviderMock")
     m.get_data.return_value = []
@@ -261,7 +261,7 @@ def demand_forecast_provider_mock():
     return m
 
 
-@pytest.fixture()
+@pytest.fixture
 def client(
     monkeypatch,
     data_provider_mock,

@@ -40,4 +40,4 @@ RUN poetry install
 EXPOSE 8000
 
 # 6) Set the command to run FastAPI via Poetry
-CMD ["poetry", "run", "fastapi", "run", "./energy_information_service/main.py", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["poetry", "run", "fastapi", "run", "./energy_availability_broker/main.py", "--host", "0.0.0.0", "--port", "8000"]

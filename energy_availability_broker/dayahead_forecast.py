@@ -1,4 +1,4 @@
-# energy_information_service/forecast.py
+# energy_availability_broker/forecast.py
 """
 Provides a background-friendly **ForecastProvider** that supplies five-day,
 15-minute Day-Ahead-Market (DAM) price forecasts.
@@ -29,13 +29,13 @@ import pandas as pd
 from eta_nexus.connections import EntsoeConnection
 from eta_nexus.nodes import EntsoeNode
 
-from energy_information_service.config import SERVICE_CONFIG
-from energy_information_service.dayahead_forecast_utils import (
+from energy_availability_broker.config import SERVICE_CONFIG
+from energy_availability_broker.dayahead_forecast_utils import (
     _fetch_entsoe_prices,
     build_feature_history,
     predict_future_prices,
 )
-from energy_information_service.env_utils import load_service_env
+from energy_availability_broker.env_utils import load_service_env
 
 log = logging.getLogger(__name__)
 
@@ -109,7 +109,7 @@ class DamForecastProvider:
             xgb_daily_model_20250721T130459Z.pkl
         If no timestamp is present, return ``None``.
         """
-        import re
+        import re  # noqa: PLC0415
 
         m = re.search(r"_([0-9]{8}T[0-9]{4,6})Z?\.pkl$", path.name)
         if not m:

@@ -116,7 +116,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-.env.energy-information-service
+.env.energy-availability-broker
 
 # Spyder project settings
 .spyderproject
@@ -145,7 +145,7 @@ cython_debug/
 # Requests Cache
 *.sqlite
 
-energy_information_service/secret.py
+energy_availability_broker/secret.py
 df_forecast.csv
 combined_data.csv
 

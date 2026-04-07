@@ -3,8 +3,8 @@ from datetime import datetime
 import anyio
 import pytest
 
-from energy_information_service.demand_forecast import DemandForecast
-from energy_information_service.flmp_demand_forecast import (
+from energy_availability_broker.demand_forecast import DemandForecast
+from energy_availability_broker.flmp_demand_forecast import (
     DEFAULT_FLMP_PATH,
     demand_forecast_model_from_flmp_file,
     flmp_response_from_file,
@@ -16,7 +16,7 @@ from energy_information_service.flmp_demand_forecast import (
 
 def test_parse_flmp_load_curve_from_sample_file():
     forecast = demand_forecast_model_from_flmp_file()
-    points = forecast.values  # noqa: PD011
+    points = forecast.values
 
     assert forecast.forecast_id == "33435488-40d4-4b27-be2c-569c4f418c23"
     assert forecast.source == "flmp"
@@ -66,7 +66,7 @@ def test_load_flmp_file_into_demand_forecast_store():
     store._persist = lambda: None
 
     parsed = anyio.run(load_flmp_file_into_demand_forecast, store, DEFAULT_FLMP_PATH)
-    parsed_points = parsed.values  # noqa: PD011
+    parsed_points = parsed.values
     persisted = anyio.run(lambda: store.get_data(source="flmp"))
 
     assert len(parsed_points) == len(persisted)

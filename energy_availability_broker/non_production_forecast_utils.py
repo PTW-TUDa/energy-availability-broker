@@ -17,7 +17,7 @@ from etaone_py_sdk.models.tags import TagModel
 from openmeteo_sdk.Variable import Variable
 from retry_requests import retry
 
-from energy_information_service.config import SERVICE_CONFIG
+from energy_availability_broker.config import SERVICE_CONFIG
 
 log = logging.getLogger(__name__)
 
@@ -506,7 +506,7 @@ def predict_out_of_production_power_48h(
     payload = json.loads(Path(feature_columns_json_path).read_text(encoding="utf-8"))
     feats = payload["features"]
 
-    x_series, x_row = build_inference_feature_vector(
+    x_series, _ = build_inference_feature_vector(
         platform=platform,
         ts_issue_utc=ts_issue_utc,
         tz_local=tz_local,

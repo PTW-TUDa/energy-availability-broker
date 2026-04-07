@@ -93,7 +93,7 @@ class NonProductionPowerForecastProvider:
 
         code = (
             "import os, json; "
-            "from energy_information_service.non_production_forecast_utils import run_non_prod_forecast_from_env;"
+            "from energy_availability_broker.non_production_forecast_utils import run_non_prod_forecast_from_env;"
             "ft = os.environ.get('NONPRODUCTION_FROM_TIME'); "
             "tt = os.environ.get('NONPRODUCTION_TO_TIME'); "
             "print(json.dumps(run_non_prod_forecast_from_env(ft, tt)))"

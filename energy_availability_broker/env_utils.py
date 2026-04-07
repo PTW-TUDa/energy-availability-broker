@@ -10,10 +10,10 @@ def load_service_env(*, override: bool = False) -> bool:
 
     package_dir = Path(__file__).resolve().parent
     candidates = [
-        package_dir / ".env.energy-information-service",
-        package_dir / ".env.energy_information_service",
-        Path.cwd() / ".env.energy-information-service",
-        Path.cwd() / ".env.energy_information_service",
+        package_dir / ".env.energy-availability-broker",
+        package_dir / ".env.energy_availability_broker",
+        Path.cwd() / ".env.energy-availability-broker",
+        Path.cwd() / ".env.energy_availability_broker",
     ]
 
     loaded = False

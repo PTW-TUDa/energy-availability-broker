@@ -485,7 +485,7 @@ def predict_future_prices(reg, start_date, end_date, entsoe, df_history):
     day_ahead_df = _fetch_entsoe_prices(entsoe, from_time=start_ts, to_time=day_ahead_end)
     if day_ahead_df.empty:
         log.warning(
-            "No ENTSO-E day-ahead data available yet for %s-%s; " "falling back to model-only seeding.",
+            "No ENTSO-E day-ahead data available yet for %s-%s; falling back to model-only seeding.",
             start_ts,
             day_ahead_end,
         )

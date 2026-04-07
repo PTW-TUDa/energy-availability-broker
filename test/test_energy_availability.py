@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import anyio
 import pandas as pd
 
-from energy_information_service.energy_availability import EnergyAvailabilityProvider
+from energy_availability_broker.energy_availability import EnergyAvailabilityProvider
 
 
 def _provider_with_cache(records: list[dict]) -> EnergyAvailabilityProvider:

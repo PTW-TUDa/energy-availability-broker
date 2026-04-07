@@ -35,3 +35,9 @@ repos:
     rev: v3.21.2
     hooks:
     -   id: pyupgrade
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+    - id: codespell
+      additional_dependencies:
+        - tomli

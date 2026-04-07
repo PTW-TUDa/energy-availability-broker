@@ -1,0 +1,69 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: energy-availability-broker
+message: >-
+  "Please cite this software using the metadata from 'preferred-citation'."
+type: software
+authors:
+  - family-names: Clement
+    given-names: Andreas
+    email: a.clement@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0009-0005-6675-1223'
+    affiliation: Technical University of Darmstadt
+  - family-names: Koch
+    given-names: Tobias
+    email: t.koch@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0001-6378-4058'
+    affiliation: Technical University of Darmstadt
+  - family-names: Fuhrländer-Völker
+    given-names: Daniel
+    email: d.fuhrlaender-voelker@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0002-9986-6191'
+    affiliation: Technical University of Darmstadt
+  - given-names: Matthias
+    family-names: Weigold
+    email: m.weigold@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0002-7820-8544'
+    affiliation: Technical University of Darmstadt
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19347351
+    description: Repository
+repository-code: 'https://github.com/PTW-TUDa/energy-availability-broker'
+abstract: >-
+  "The Energy Availability Broker (EAB) provides a data- and forecast-based representation of electricity supply and expected demand within industrial energy systems."
+preferred-citation:
+  authors:
+  - family-names: Clement
+    given-names: Andreas
+    email: a.clement@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0009-0005-6675-1223'
+    affiliation: Technical University of Darmstadt
+  - family-names: Koch
+    given-names: Tobias
+    email: t.koch@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0001-6378-4058'
+    affiliation: Technical University of Darmstadt
+  - family-names: Fuhrländer-Völker
+    given-names: Daniel
+    email: d.fuhrlaender-voelker@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0002-9986-6191'
+    affiliation: Technical University of Darmstadt
+  - given-names: Matthias
+    family-names: Weigold
+    email: m.weigold@ptw.tu-darmstadt.de
+    orcid: 'https://orcid.org/0000-0002-7820-8544'
+    affiliation: Technical University of Darmstadt
+  title: "Centralized Energy Data Provision for Energy Flexibility in Factories"
+  type: conference
+keywords:
+  - industrial control
+  - prognosis
+  - eta factory
+  - control optimization
+  - demand side management
+license: BSD-2-Clause
+version: 0.2.0
+date-released: '2026-04-07'

@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "energy_availability_broker"
-version = "0.1.0"
-description = "Communication architecture demonstration for multi level demand-response"
+name = "Energy Availability Broker"
+version = "0.2.0"
+description = "The Energy Availability Broker (EAB) provides a data- and forecast-based representation of electricity supply and expected demand within industrial energy systems."
 authors = ["Andreas Clement <a.clement@ptw.tu-darmstadt.de>, Tobias Koch <t.koch@ptw.tu-darmstadt.de>"]
 readme = "README.md"
 license = "BSD-2-Clause License"
 
-keywords = ["eta_x", "experiment", "demand_response", "multi_agent_system"]
+keywords = [ "industrial control", "prognosis", "eta factory", "control optimization", "demand side management"]
 
 # specify some classifiers, to signify, who you are developing for. See: https://pypi.org/classifiers/
 classifiers = [
@@ -18,11 +18,8 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Information Analysis"
 ]
-
-# Specify URLs for the project (optional)
-# homepage = "https://www.ptw.tu-darmstadt.de" # TODO: change this
-# documentation = "https://eta-utility.readthedocs.io/" # TODO: change this
-# repository = "https://github.com/PTW-TUDa/eta_utility/" # TODO: change this
+homepage = "https://www.ptw.tu-darmstadt.de"
+repository = "https://github.com/PTW-TUDa/energy-availability-broker"
 
 
 [tool.poetry.dependencies]
@@ -124,5 +121,5 @@ max-returns = 9
 max-nested-blocks = 20
 
 [build-system]
-requires = ["poetry-core>=1.6.0"]
+requires = ["poetry-core>=2.3.0"]
 build-backend = "poetry.core.masonry.api"

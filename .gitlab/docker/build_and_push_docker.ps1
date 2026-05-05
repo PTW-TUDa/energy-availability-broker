@@ -6,7 +6,7 @@ $repoRoot = Resolve-Path (Join-Path $scriptDir "..\..")
 Set-Location $repoRoot
 
 # Load variables from .env (simple KEY=VALUE lines)
-$envFile = Join-Path $repoRoot ".env"
+$envFile = Join-Path $repoRoot ".env.energy-availability-broker"
 if (Test-Path $envFile) {
     Get-Content $envFile | ForEach-Object {
         if ($_ -match "^\s*([^#][^=]*)=(.*)$") {

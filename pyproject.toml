@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "Energy Availability Broker"
+name = "energy-availability-broker"
 version = "0.2.0"
 description = "The Energy Availability Broker (EAB) provides a data- and forecast-based representation of electricity supply and expected demand within industrial energy systems."
-authors = ["Andreas Clement <a.clement@ptw.tu-darmstadt.de>, Tobias Koch <t.koch@ptw.tu-darmstadt.de>"]
+authors = ["Andreas Clement <a.clement@ptw.tu-darmstadt.de>"]
 readme = "README.md"
 license = "BSD-2-Clause License"
 
-keywords = [ "industrial control", "prognosis", "eta factory", "control optimization", "demand side management"]
+keywords = [ "industrial energy system", "operational control", "prognosis", "eta factory", "control optimization", "demand side management"]
 
 # specify some classifiers, to signify, who you are developing for. See: https://pypi.org/classifiers/
 classifiers = [

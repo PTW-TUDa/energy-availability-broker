@@ -1,5 +1,6 @@
 # Energy Availability Broker
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19347351.svg)](https://doi.org/10.5281/zenodo.19347351)
 Implements the **Energy Availability Broker** for the ETA Factory.
 It exposes a FastAPI application that serves Day-Ahead prices, extended by machine-learning based forecasts (e.g., a Day-Ahead-Market price forecast) and related utilities.
 
@@ -220,6 +221,12 @@ poetry run ruff format .
 - **Windows tip**
   Prefer running commands in **PowerShell** (or WSL) rather than Git Bash when using Poetry and FastAPI CLI.
 
+## Citing this work
+
+See [CITATION.cff](CITATION.cff) for information on how to cite this repository.
+
+The authors further acknowledge contributions to this repository by:
+  - MD Shadman Hasan
 
 ## License
 
